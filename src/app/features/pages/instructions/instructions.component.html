@@ -1,0 +1,119 @@
+<section class="container">
+  <h1>Welcome to pollitos-league-manager-ui</h1>
+  <article>
+    <p>
+      We are building a UI for a sports league management system. The application will manage two leagues:
+      <strong>Soccer League</strong> and <strong>Baseball League</strong>. The UI will consume APIs
+      that handle the data for these leagues, including teams, players, and matches.
+    </p>
+  </article>
+  <article>
+    <h2>Features and Functionality</h2>
+    <h3>Pages to Create</h3>
+    <ul>
+      <li>
+        <strong>Home Page:</strong> A dashboard with links to Teams, Players, and Matches modules.
+      </li>
+      <li>
+        <strong>Teams Module:</strong>
+        <ul>
+          <li>List Teams: Display all teams in the selected league.</li>
+          <li>Create Team: A form to add a new team.</li>
+          <li>Edit Team: A form to update a team’s information.</li>
+          <li>Delete Players: A button to delete all players from a specific team.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Players Module:</strong>
+        <ul>
+          <li>List Players: Display all players in a specific team.</li>
+          <li>Create Player: A form to add a new player and assign them to a team.</li>
+          <li>Edit Player: A form to update a player’s information.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Matches Module:</strong>
+        <ul>
+          <li>Create Match: A form to create a match between two teams with their scores.</li>
+          <li>View Matches: Display all matches for a specific team.</li>
+          <li>Delete Matches: A button to delete all matches.</li>
+        </ul>
+      </li>
+    </ul>
+  </article>
+  <article>
+  <h2>UI Requirements</h2>
+  <ul>
+    <li>Allow users to switch between the two leagues (Soccer League and Baseball League).</li>
+    <li>
+      <strong>Reusable Components:</strong> Use reusable components for forms and tables.
+    </li>
+    <li>
+      <strong>Validation:</strong> Ensure valid inputs, such as the number of teams not exceeding the league's limit (default is 10).
+    </li>
+    <li>
+      <strong>Styling:</strong> Students can use any CSS framework, library, or custom styles.
+    </li>
+  </ul>
+  </article>
+  <article>
+  <h2>Criteria to Evaluate</h2>
+  <h3>Implementation Requirements</h3>
+  <ul>
+    <li>Use Angular modules for Teams, Players, and Matches.</li>
+    <li>Implement routing with lazy loading for the modules.</li>
+    <li>Use Angular services for API interactions.</li>
+    <li>Log API responses and handle errors gracefully.</li>
+  </ul>
+  <h3>Extra Points</h3>
+  <ul>
+    <li>
+      <strong>Testing:</strong> Create unit tests for components and services using Jasmine and Karma. Add integration tests with Protractor or Cypress.
+    </li>
+    <li>
+      <strong>Reusable Interfaces:</strong> Create TypeScript interfaces for entities like Team, Player, and Match.
+    </li>
+    <li>
+      <strong>Documentation:</strong> Provide instructions in the README, including:
+      <ul>
+        <li>How to set up the project</li>
+        <li>How to run the app</li>
+        <li>How to run tests</li>
+        <li>How to configure the API endpoints</li>
+      </ul>
+    </li>
+  </ul>
+  </article>
+  <article>
+    <h2>Folder structure</h2>
+    <code>
+      <pre>
+        src/
+        ├── app/
+        │   ├── core/                  # Core services, guards, and shared logic
+        │   │   ├── services/          # Reusable services (e.g., AuthService, ApiService)
+        │   │   ├── guards/            # Route guards (e.g., AuthGuard)
+        │   │   ├── interceptors/      # HTTP interceptors
+        │   │   ├── models/            # Shared interfaces and types
+        │   │   └── utils/             # Utility functions (pipes or helpers)
+        │   ├── features/              # Feature-specific modules
+        │   │   ├── feature1/          # Example: "users" (one folder per feature/module)
+        │   │   │   ├── components/    # Components related to this feature
+        │   │   │   ├── pages/         # Main pages/components for routes
+        │   │   │   └── services/      # Services specific to this module
+        │   │   └── feature2/
+        │   ├── shared/                # Shared components, pipes, and modules
+        │   │   ├── components/        # Common components (e.g., buttons, modals)
+        │   │   ├── directives/        # Custom directives
+        │   │   ├── pipes/             # Shared pipes
+        │   │   └── modules/           # Reusable secondary modules
+        │   ├── layout/                # Layout components (e.g., header, footer)
+        │   └── app-routing.module.ts  # Main routing configuration
+        ├── assets/                    # Static files (images, icons, etc.)
+        ├── environments/              # Environment-specific configuration (dev, prod)
+        ├── styles/                    # Global styles (SCSS or CSS)
+        └── index.html
+      </pre>
+    </code>
+  </article>
+</section>
