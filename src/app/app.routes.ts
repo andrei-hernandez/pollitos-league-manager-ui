@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes } from '@angular/router'
 
 export const routes: Routes = [
   {
@@ -10,4 +10,4 @@ export const routes: Routes = [
     path: 'instructions',
     loadComponent: () => import('./features/pages/instructions/instructions.component')
   }
-];
+]
