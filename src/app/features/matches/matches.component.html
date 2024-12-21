@@ -1,0 +1,54 @@
+<div class="matches-container">
+    <h2>Lista de Partidos</h2>
+    
+    <!-- Mostrar los partidos -->
+    <div *ngIf="matches.length === 0">
+      <p>No hay partidos disponibles.</p>
+    </div>
+  
+    <div *ngFor="let match of matches" class="match-item">
+      <p>
+        <strong>Partido: </strong> 
+        {{ match.localTeamId }} vs {{ match.visitTeamid }} <br>
+        <strong>Marcador: </strong> 
+        {{ match.goalLocal }} - {{ match.goalVisit }} <br>
+        <strong>Liga: </strong> 
+        {{ match.idLeague }} <br>
+        <button (click)="editMatch(match)">Editar</button>
+        <button (click)="deleteMatch(match.idMatch)">Eliminar</button>
+      </p>
+    </div>
+  
+    <hr>
+  
+    <!-- Formulario para crear un nuevo partido -->
+    <div class="create-match">
+      <h3>Agregar Nuevo Partido</h3>
+      <form (ngSubmit)="createMatch()">
+        <label for="idLeague">Liga:</label>
+        <input [(ngModel)]="newMatch.idLeague" placeholder="ID de la Liga" type="number" name="idLeague" required>
+        <br>
+  
+        <label for="localTeamId">Equipo Local:</label>
+        <input type="number" id="localTeamId" [(ngModel)]="newMatch.localTeamId" name="localTeamId" required>
+        <br>
+  
+        <label for="visitTeamid">Equipo Visitante:</label>
+        <input type="number" id="visitTeamid" [(ngModel)]="newMatch.visitTeamid" name="visitTeamid" required>
+        <br>
+  
+        <label for="goalLocal">Goles Local:</label>
+        <input type="number" id="goalLocal" [(ngModel)]="newMatch.goalLocal" name="goalLocal" required>
+        <br>
+  
+        <label for="goalVisit">Goles Visitante:</label>
+        <input type="number" id="goalVisit" [(ngModel)]="newMatch.goalVisit" name="goalVisit" required>
+        <br>
+  
+        <button type="submit">Crear Partido</button>
+      </form>
+    </div>
+  
+    <hr>
+  </div>
+  
