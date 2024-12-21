@@ -1,8 +1,8 @@
 export interface Match {
-    idMatch: number;
-    idLeague: number;
-    localTeamId: number;
-    visitTeamid: number;
-    goalLocal: number;
+    idmatch: number;
+    idleague: number;
+    localteamid: number;
+    visitteamid: number;
+    goallocal: number;
     goalVisit: number;
 }

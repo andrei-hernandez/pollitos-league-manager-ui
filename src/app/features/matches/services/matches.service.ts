@@ -13,7 +13,7 @@ export class MatchesService {
   constructor(private http: HttpClient) {}
 
   createMatch(match: Match): Observable<Match> {
-    return this.http.post<Match>(this.apiUrl, match);
+    return this.http.post<Match>(this.apiUrl + "/", match); // Solo añade "/" si tu backend lo requiere explícitamente
   }
 
   getMatches(idTeam: number): Observable<Match[]> {
