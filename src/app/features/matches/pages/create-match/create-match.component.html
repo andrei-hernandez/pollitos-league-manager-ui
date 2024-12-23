@@ -1,1 +1,24 @@
-<p>create-match works!</p>
+<form (ngSubmit)="createMatch()" #matchForm="ngForm">
+    <label for="idLeague">Liga:</label>
+    <input [(ngModel)]="newMatch.idleague" placeholder="ID de la Liga" type="number" name="idLeague" required>
+    <br>
+  
+    <label for="localTeamId">Equipo Local:</label>
+    <input [(ngModel)]="newMatch.localteamid" placeholder="ID Equipo Local" type="number" name="localTeamId" required>
+    <br>
+  
+    <label for="visitTeamid">Equipo Visitante:</label>
+    <input [(ngModel)]="newMatch.visitteamid" placeholder="ID Equipo Visitante" type="number" name="visitTeamid" required>
+    <br>
+  
+    <label for="goalLocal">Goles Local:</label>
+    <input [(ngModel)]="newMatch.goallocal" placeholder="Goles Local" type="number" name="goalLocal" required>
+    <br>
+  
+    <label for="goalVisit">Goles Visitante:</label>
+    <input [(ngModel)]="newMatch.goalVisit" placeholder="Goles Visitante" type="number" name="goalVisit" required>
+    <br>
+  
+    <button type="submit" [disabled]="!matchForm.valid">Crear Partido</button>
+  </form>
+  

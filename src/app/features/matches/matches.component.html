@@ -1,23 +1,45 @@
-<form (ngSubmit)="createMatch()" #matchForm="ngForm">
-  <label for="idLeague">Liga:</label>
-  <input [(ngModel)]="newMatch.idleague" placeholder="ID de la Liga" type="number" name="idLeague" required>
-  <br>
+<div class="container">
+  <h1>Gestión de Partidos</h1>
+  <button (click)="navigateToCreate()" class="btn btn-primary">Crear Partido</button>
+  <div class="search mb-3">
+    <input
+      type="number"
+      placeholder="Buscar por ID del equipo"
+      [(ngModel)]="searchTeamId"
+      class="form-control search-input d-inline-block"
+      style="width: auto;"
+    />
+    <button (click)="loadMatches(searchTeamId)" class="btn btn-secondary ml-2">Buscar</button>
+  </div>
 
-  <label for="localTeamId">Equipo Local:</label>
-  <input [(ngModel)]="newMatch.localteamid" placeholder="ID Equipo Local" type="number" name="localTeamId" required>
-  <br>
-
-  <label for="visitTeamid">Equipo Visitante:</label>
-  <input [(ngModel)]="newMatch.visitteamid" placeholder="ID Equipo Visitante" type="number" name="visitTeamid" required>
-  <br>
-
-  <label for="goalLocal">Goles Local:</label>
-  <input [(ngModel)]="newMatch.goallocal" placeholder="Goles Local" type="number" name="goalLocal" required>
-  <br>
-
-  <label for="goalVisit">Goles Visitante:</label>
-  <input [(ngModel)]="newMatch.goalVisit" placeholder="Goles Visitante" type="number" name="goalVisit" required>
-  <br>
-
-  <button type="submit" [disabled]="!matchForm.valid">Crear Partido</button>
-</form>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID Partido</th>
+        <th>ID Liga</th>
+        <th>Equipo Local</th>
+        <th>Equipo Visitante</th>
+        <th>Goles Local</th>
+        <th>Goles Visitante</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let match of matches">
+        <td>{{ match.idmatch }}</td>
+        <td>{{ match.idleague }}</td>
+        <td>{{ match.localteamid }}</td>
+        <td>{{ match.visitteamid }}</td>
+        <td>{{ match.goallocal }}</td>
+        <td>{{ match.goalVisit }}</td>
+        <td>
+          
+          <button class="btn btn-danger btn-sm" (click)="deleteMatch(match.idmatch)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

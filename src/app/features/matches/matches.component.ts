@@ -1,71 +1,51 @@
 import { Component, OnInit } from '@angular/core';
-import { MatchesService } from '../matches/services/matches.service';
+import { MatchesService } from 'src/app/features/matches/services/matches.service';
 import { Match } from 'src/app/features/matches/models/match.model';
 import { CommonModule } from '@angular/common'; 
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-matches',
+  selector: 'app-matches-home',
   templateUrl: './matches.component.html',
   styleUrls: ['./matches.component.css'],
   imports: [CommonModule, FormsModule],
 })
 export class MatchesComponent implements OnInit {
   matches: Match[] = [];
-  newMatch: Partial<Match> = {}; // Cambiar a Partial para aceptar valores opcionales.
-  matchToEdit: Match | null = null;
+  searchTeamId: number = 0; 
 
-  constructor(private matchService: MatchesService) {}
+  constructor(private matchesService: MatchesService, private router: Router) {}
+
+  navigateToCreate() {
+    this.router.navigate(['matches/create']); 
+  }
 
   ngOnInit(): void {
     this.loadMatches(); 
   }
 
-  loadMatches(idTeam?: number): void {
-    if (idTeam !== undefined) {
-      this.matchService.getMatches(idTeam).subscribe(
-        (data: Match[]) => {
-          this.matches = data;
-          console.log('Matches:', this.matches); 
-        },
-        error => {
-          console.error('Error al cargar los partidos', error);
-        }
-      );
-    }
-  }
-
-  createMatch(): void {
-    console.log('Datos del formulario:', this.newMatch); // Agregar esta línea para depurar
-    if (this.newMatch.idleague && this.newMatch.localteamid && this.newMatch.visitteamid) {
-      this.matchService.createMatch(this.newMatch as Match).subscribe(
-        (match: Match) => {
-          this.matches.push(match);
-          this.newMatch = {}; // Reinicia el formulario
-          console.log('Match created:', match);
-        },
-        error => {
-          console.error('Error al crear el partido', error);
-        }
-      );
-    } else {
-      console.warn('Formulario incompleto. Por favor, rellena todos los campos.');
-    }
-  }
-
-  editMatch(match: Match): void {
-    this.matchToEdit = { ...match }; // Crea una copia para evitar modificar directamente el array
-  }
-
-  deleteMatch(idMatch: number): void {
-    this.matchService.deleteMatches(idMatch).subscribe(
-      () => {
-        this.matches = this.matches.filter(m => m.idmatch !== idMatch);
-        console.log('Match deleted:', idMatch);
+ 
+  loadMatches(teamId: number = 1): void {
+    this.matchesService.getMatches(teamId).subscribe({
+      next: (data) => {
+        this.matches = data;  
+        console.log('Partidos cargados:', data);
       },
-      error => {
-        console.error('Error al eliminar el partido', error);
-      }
-    );
+      error: (err) => console.error('Error al cargar los partidos:', err),
+    });
+  }
+
+ 
+  deleteMatch(idMatch: number): void {
+    if (confirm('¿Estás seguro de eliminar este partido?')) {
+      this.matchesService.deleteMatches(idMatch).subscribe({
+        next: () => {
+          console.log('Partido eliminado:', idMatch);
+          this.loadMatches(); 
+        },
+        error: (err) => console.error('Error al eliminar el partido:', err),
+      });
+    }
   }
 }

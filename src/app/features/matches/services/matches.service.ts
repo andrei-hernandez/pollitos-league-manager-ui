@@ -13,14 +13,15 @@ export class MatchesService {
   constructor(private http: HttpClient) {}
 
   createMatch(match: Match): Observable<Match> {
-    return this.http.post<Match>(this.apiUrl + "/", match); // Solo añade "/" si tu backend lo requiere explícitamente
+    return this.http.post<Match>(this.apiUrl + "/", match);
   }
 
-  getMatches(idTeam: number): Observable<Match[]> {
-    return this.http.get<Match[]>(`${this.apiUrl}?localteamid=${idTeam}&visitteamid=${idTeam}`);
+  getMatches(teamId: number): Observable<Match[]> {
+    const url = `${this.apiUrl}/team/${teamId}`;
+    return this.http.get<Match[]>(url);
   }
-
-  deleteMatches(idTeam: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}?localteamid=${idTeam}||visitteamid=${idTeam}`);
+  deleteMatches(idMatch: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/matches`);
   }
+ 
 }
