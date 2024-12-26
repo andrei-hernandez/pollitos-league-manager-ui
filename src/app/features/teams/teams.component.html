@@ -16,9 +16,7 @@
   
     <!-- Botón para crear nuevo equipo -->
     <div class="mb-3">
-      <button class="btn btn-primary">
-        <a [routerLink]="['createTeam']">Crear Equipo</a>
-      </button>
+      <button class="btn btn-primary" [routerLink]="['/createTeam']">Crear Equipo</button>
     </div>
   
     <!-- Tabla de Equipos -->
@@ -38,8 +36,8 @@
           <td>{{ team.idLeague }}</td>
           <td>
             <!-- Acción de Editar -->
-            <button class="btn btn-warning btn-sm">
-              <a [routerLink]="['editTeam', team.idteam]">Editar</a>
+            <button class="btn btn-primary" >
+              <a [routerLink]="['/editTeam', team.idteam]">Editar</a>
             </button>
             <!-- Acción de Eliminar -->
             <button

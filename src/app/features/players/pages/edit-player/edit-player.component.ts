@@ -26,19 +26,23 @@ export class EditPlayerComponent implements OnInit {
   ngOnInit(): void {
     this.playerId = +this.route.snapshot.paramMap.get('id')!;
     this.loadPlayer(this.playerId);
+    console.log('ID del equipo en la URL:', this.playerId);
   }
 
   loadPlayer(playerId: number): void {
-    this.playersService.getPlayers(playerId).subscribe({
+    this.playersService.getPlayers(1).subscribe({
       next: (data) => {
-        this.player = data.find(p => p.idPlayer === this.playerId) || { idPlayer: 0, namePlayer: '', idLeague: 0, idTeam: 0 };
+        this.player = data.find(p => p.idPlayer === playerId) || { idPlayer: 0, namePlayer: '', idLeague: 0, idTeam: 0 };
         if (!this.player.idPlayer) {
           console.error('Jugador no encontrado');
+        } else {
+          console.log('Jugador encontrado:', this.player);
         }
       },
       error: (err) => console.error('Error al cargar los jugadores:', err),
     });
   }
+  
 
   updatePlayer(): void {
     this.playersService.updatePlayer(this.player.idPlayer, this.player).subscribe({

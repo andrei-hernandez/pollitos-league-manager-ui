@@ -10,15 +10,15 @@ import { CreatePlayerComponent } from './features/players/pages/create-player/cr
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-  
+ 
   ],
   imports: [ 
     MatchesComponent,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
+   HomeComponent,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
