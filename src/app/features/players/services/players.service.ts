@@ -2,29 +2,27 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/enviroments/enviroment'; 
-import { PlayersModule } from 'src/app/features/players/players.module';
+import { Player } from 'src/app/features/players/models/player.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PlayersService {
-  private apiUrl = `${environment.apiUrl}/players`;
+  private apiUrl = `${environment.apiUrl}Player/`;
 
   constructor(private http: HttpClient) {}
 
-  getPlayers(idTeam: number): Observable<PlayersModule[]> {
-    return this.http.get<PlayersModule[]>(`${this.apiUrl}?idTeam=${idTeam}`);
+  getPlayers(idTeam: number): Observable<Player[]> {
+    return this.http.get<Player[]>(`${this.apiUrl}${idTeam}`);
+
   }
 
-  createPlayer(player: PlayersModule): Observable<PlayersModule> {
-    return this.http.post<PlayersModule>(this.apiUrl, player);
+  createPlayer(player: Player): Observable<Player> {
+    return this.http.post<Player>(this.apiUrl, player);
   }
 
-  updatePlayer(id: number, player: PlayersModule): Observable<PlayersModule> {
-    return this.http.put<PlayersModule>(`${this.apiUrl}/${id}`, player);
+  updatePlayer(id: number, player: Player): Observable<Player> {
+    return this.http.put<Player>(`${this.apiUrl}${id}`, player);
   }
-
-  deletePlayer(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
-  }
+  
 }

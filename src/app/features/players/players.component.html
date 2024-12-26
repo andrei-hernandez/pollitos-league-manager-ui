@@ -1,1 +1,45 @@
-<p>players works!</p>
+<div class="container">
+  <h2>Lista de Jugadores</h2>
+
+  <div class="mb-3">
+    <label for="playerId">Buscar Jugador por ID</label>
+    <input
+      type="number"
+      id="playerId"
+      class="form-control"
+      [(ngModel)]="searchPlayerId"
+      placeholder="Ingrese el ID del jugador"
+    />
+    <button class="btn btn-info mt-2" (click)="searchPlayer(searchPlayerId)">Buscar</button>
+  </div>
+
+  <!-- Botón para Crear Jugador -->
+  <div class="mb-3">
+    <button class="btn btn-primary mt-2" [routerLink]="['/createPlayer']">Crear Jugador</button>
+  </div>
+
+  <table class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>ID Jugador</th>
+        <th>Nombre</th>
+        <th>ID Liga</th>
+        <th>ID Equipo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of filteredPlayers; let i = index">
+        <td>{{ player.idPlayer }}</td>
+        <td>{{ player.namePlayer }}</td>
+        <td>{{ player.idLeague }}</td>
+        <td>{{ player.idTeam }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm">
+            <a [routerLink]="['/editPlayer', player.idPlayer]">Editar</a>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

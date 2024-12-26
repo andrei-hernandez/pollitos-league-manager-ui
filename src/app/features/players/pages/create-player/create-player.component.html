@@ -1,1 +1,66 @@
-<p>create-player works!</p>
+<div class="container">
+    <h2>Agregar Jugador</h2>
+  
+    <form (ngSubmit)="createPlayer()" #playerForm="ngForm">
+      <div class="form-group">
+        <label for="namePlayer">Nombre del Jugador</label>
+        <input
+          type="text"
+          id="namePlayer"
+          class="form-control"
+          [(ngModel)]="player.namePlayer"
+          name="namePlayer"
+          required
+          #namePlayer="ngModel"
+        />
+        <div *ngIf="namePlayer.invalid && namePlayer.touched" class="text-danger">
+          El nombre es obligatorio.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="idLeague">ID Liga</label>
+        <input
+          type="number"
+          id="idLeague"
+          class="form-control"
+          [(ngModel)]="player.idLeague"
+          name="idLeague"
+          required
+          #idLeague="ngModel"
+        />
+        <div *ngIf="idLeague.invalid && idLeague.touched" class="text-danger">
+          El ID de la liga es obligatorio.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="idTeam">ID Equipo</label>
+        <input
+          type="number"
+          id="idTeam"
+          class="form-control"
+          [(ngModel)]="player.idTeam"
+          name="idTeam"
+          required
+          #idTeam="ngModel"
+        />
+        <div *ngIf="idTeam.invalid && idTeam.touched" class="text-danger">
+          El ID del equipo es obligatorio.
+        </div>
+      </div>
+  
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="playerForm.invalid"
+      >
+        Crear Jugador
+      </button>
+    </form>
+ 
+    <div *ngIf="successMessage" class="alert alert-success mt-3">
+      {{ successMessage }}
+    </div>
+  </div>
+  

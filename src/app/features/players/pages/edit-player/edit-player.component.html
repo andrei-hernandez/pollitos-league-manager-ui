@@ -1,1 +1,23 @@
-<p>edit-player works!</p>
+<div class="container">
+    <h2>Editar Jugador</h2>
+  
+    <form (ngSubmit)="updatePlayer()" #playerForm="ngForm">
+      <div class="form-group">
+        <label for="namePlayer">Nombre:</label>
+        <input type="text" id="namePlayer" class="form-control" [(ngModel)]="player.namePlayer" name="namePlayer" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="idLeague">ID Liga:</label>
+        <input type="number" id="idLeague" class="form-control" [(ngModel)]="player.idLeague" name="idLeague" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="idTeam">ID Equipo:</label>
+        <input type="number" id="idTeam" class="form-control" [(ngModel)]="player.idTeam" name="idTeam" required>
+      </div>
+  
+      <button type="submit" class="btn btn-success">Actualizar Jugador</button>
+    </form>
+  </div>
+  

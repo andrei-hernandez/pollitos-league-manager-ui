@@ -18,7 +18,7 @@ export class MatchesComponent implements OnInit {
   constructor(private matchesService: MatchesService, private router: Router) {}
 
   navigateToCreate() {
-    this.router.navigate(['matches/create']); 
+    this.router.navigate(['createMatch']); 
   }
 
   ngOnInit(): void {
