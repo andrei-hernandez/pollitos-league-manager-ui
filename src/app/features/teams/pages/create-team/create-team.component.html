@@ -1,1 +1,41 @@
-<p>create-team works!</p>
+<div class="container">
+    <h2>Crear Nuevo Equipo</h2>
+  
+    <form (ngSubmit)="createTeam()">
+      <div class="mb-3">
+        <label for="teamname" class="form-label">Nombre del Equipo</label>
+        <input
+          type="text"
+          id="teamname"
+          class="form-control"
+          [(ngModel)]="team.teamname"
+          name="teamname"
+          required
+          placeholder="Nombre del equipo"
+        />
+      </div>
+  
+      
+      <div class="mb-3">
+        <label for="idLeague" class="form-label">ID Liga</label>
+        <input
+          type="number"
+          id="idLeague"
+          class="form-control"
+          [(ngModel)]="team.idLeague"
+          name="idLeague"
+          required
+          placeholder="Ingrese ID de la liga"
+        />
+      </div>
+  
+      
+      <button type="submit" class="btn btn-success">
+        Crear Equipo
+      </button>
+      <a [routerLink]="['/teams']" class="btn btn-secondary ml-2">
+        Cancelar
+      </a>
+    </form>
+  </div>
+  

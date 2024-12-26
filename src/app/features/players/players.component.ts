@@ -9,14 +9,14 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-players',
   templateUrl: './players.component.html',
   styleUrls: ['./players.component.css'],
-    imports: [CommonModule, RouterModule, FormsModule], 
-    standalone: true
+  imports: [CommonModule, RouterModule, FormsModule], 
+  standalone: true
 
 })
 export class PlayersComponent implements OnInit {
   players: Player[] = []; 
   filteredPlayers: Player[] = []; 
-  teamId: number = 2; 
+  teamId: number = 1; 
   searchPlayerId: number = 0;
 
   constructor(private playersService: PlayersService) {}

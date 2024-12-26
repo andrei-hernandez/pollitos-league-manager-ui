@@ -25,11 +25,11 @@ export class EditPlayerComponent implements OnInit {
 
   ngOnInit(): void {
     this.playerId = +this.route.snapshot.paramMap.get('id')!;
-    this.loadPlayer();
+    this.loadPlayer(this.playerId);
   }
 
-  loadPlayer(): void {
-    this.playersService.getPlayers(1).subscribe({
+  loadPlayer(playerId: number): void {
+    this.playersService.getPlayers(playerId).subscribe({
       next: (data) => {
         this.player = data.find(p => p.idPlayer === this.playerId) || { idPlayer: 0, namePlayer: '', idLeague: 0, idTeam: 0 };
         if (!this.player.idPlayer) {

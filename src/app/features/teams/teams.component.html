@@ -1,1 +1,56 @@
-<p>teams works!</p>
+<div class="container">
+    <h2>Lista de Equipos</h2>
+  
+    <!-- Campo de búsqueda -->
+    <div class="mb-3">
+      <label for="teamId">Buscar Equipo por ID</label>
+      <input
+        type="number"
+        id="teamId"
+        class="form-control"
+        [(ngModel)]="searchTeamId"
+        placeholder="Ingrese el ID del equipo"
+      />
+      <button class="btn btn-info mt-2" (click)="searchTeam()">Buscar</button>
+    </div>
+  
+    <!-- Botón para crear nuevo equipo -->
+    <div class="mb-3">
+      <button class="btn btn-primary">
+        <a [routerLink]="['createTeam']">Crear Equipo</a>
+      </button>
+    </div>
+  
+    <!-- Tabla de Equipos -->
+    <table class="table table-bordered mt-3">
+      <thead>
+        <tr>
+          <th>ID Equipo</th>
+          <th>Nombre del Equipo</th>
+          <th>ID Liga</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of filteredTeams">
+          <td>{{ team.idteam }}</td>
+          <td>{{ team.teamname }}</td>
+          <td>{{ team.idLeague }}</td>
+          <td>
+            <!-- Acción de Editar -->
+            <button class="btn btn-warning btn-sm">
+              <a [routerLink]="['editTeam', team.idteam]">Editar</a>
+            </button>
+            <!-- Acción de Eliminar -->
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="deleteTeam(team.idteam)"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

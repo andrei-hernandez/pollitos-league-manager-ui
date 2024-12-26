@@ -10,15 +10,33 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'Match', component: MatchesComponent },
   { path: 'createMatch', component: CreateMatchComponent },
-  { path: '', component: PlayersComponent },
+  { path: 'Players', component: PlayersComponent },
   {
   path: 'createPlayer',
-  loadComponent: () => import('./features/players/pages/create-player/create-player.component').then(m => m.CreatePlayerComponent)
+  loadComponent: () => import('./features/players/pages/create-player/create-player.component')
+  .then(m => m.CreatePlayerComponent)
 },
 {
-  path: 'editPlayer/:id',  // Asegúrate de que el parámetro 'id' esté en la ruta
-  loadComponent: () => import('./features/players/pages/edit-player/edit-player.component').then(m => m.EditPlayerComponent)
+  path: 'editPlayer/:id', 
+  loadComponent: () => import('./features/players/pages/edit-player/edit-player.component')
+  .then(m => m.EditPlayerComponent)
 },
+{
+  path: '', 
+  loadComponent: () => import('./features/teams/teams.component')
+  .then(m => m.TeamsComponent)
+},
+{
+  path: 'createTeam', 
+  loadComponent: () => import('./features/teams/pages/create-team/create-team.component')
+  .then(m => m.CreateTeamComponent)
+},
+{
+  path: 'editTeam/:idteam', 
+  loadComponent: () => import('./features/teams/pages/edit-team/edit-team.component')
+  .then(m => m.EditTeamComponent)
+},
+
 
 ];
 
