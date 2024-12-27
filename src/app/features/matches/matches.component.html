@@ -1,10 +1,10 @@
 <div class="container">
   <h1>Gestión de Partidos</h1>
 
-  <!-- Botón Crear Partido -->
+
   <button mat-raised-button color="primary" (click)="navigateToCreate()">Crear Partido</button>
 
-  <!-- Buscar por ID -->
+
   <div class="search mb-3">
     <mat-form-field appearance="fill" class="d-inline-block">
       <mat-label>Buscar por ID del equipo</mat-label>
@@ -19,7 +19,7 @@
     <button mat-raised-button color="accent" (click)="loadMatches(searchTeamId)" class="ml-2">Buscar</button>
   </div>
 
-  <!-- Tabla de Partidos -->
+
   <table mat-table [dataSource]="matches" class="mat-elevation-z8">
     <ng-container matColumnDef="idmatch">
       <th mat-header-cell *matHeaderCellDef> ID Partido </th>

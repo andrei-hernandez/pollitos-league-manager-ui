@@ -2,7 +2,6 @@
   <h2>Agregar Jugador</h2>
 
   <form (ngSubmit)="createPlayer()" #playerForm="ngForm">
-    <!-- Nombre del Jugador -->
     <div class="form-group">
       <mat-form-field appearance="fill" class="w-100">
         <mat-label>Nombre del Jugador</mat-label>
@@ -21,7 +20,7 @@
       </mat-form-field>
     </div>
 
-    <!-- ID de la Liga -->
+    
     <div class="form-group">
       <mat-form-field appearance="fill" class="w-100">
         <mat-label>ID Liga</mat-label>
@@ -40,7 +39,7 @@
       </mat-form-field>
     </div>
 
-    <!-- ID del Equipo -->
+    
     <div class="form-group">
       <mat-form-field appearance="fill" class="w-100">
         <mat-label>ID Equipo</mat-label>
@@ -59,7 +58,7 @@
       </mat-form-field>
     </div>
 
-    <!-- Botón de Crear Jugador -->
+    
     <button
       mat-raised-button
       color="primary"
@@ -70,7 +69,7 @@
     </button>
   </form>
 
-  <!-- Mensaje de éxito -->
+  
   <div *ngIf="successMessage" class="alert alert-success mt-3">
     {{ successMessage }}
   </div>

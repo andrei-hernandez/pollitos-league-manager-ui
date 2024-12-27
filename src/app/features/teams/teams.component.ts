@@ -22,7 +22,7 @@ export class TeamsComponent implements OnInit {
   filteredTeams: Team[] = []; 
   searchTeamId: number = 0; 
 
-  displayedColumns: string[] = ['idteam', 'teamname', 'idLeague', 'actions']; // Definir las columnas que se mostrarán en la tabla
+  displayedColumns: string[] = ['idteam', 'teamname', 'idLeague', 'actions']; 
 
   constructor(private teamsService: TeamsService) {}
 

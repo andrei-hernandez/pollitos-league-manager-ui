@@ -24,7 +24,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
  
   ],
   imports: [ 
-    MatchesComponent,
+    
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

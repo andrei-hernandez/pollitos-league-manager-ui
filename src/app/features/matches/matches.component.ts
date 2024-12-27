@@ -36,7 +36,7 @@ export class MatchesComponent implements OnInit {
     this.loadMatches();
   }
 
-  // Función para cargar los partidos (con o sin filtro)
+
   loadMatches(teamId: number = 1): void {
     if (teamId) {
       this.matchesService.getMatches(teamId).subscribe({
@@ -51,20 +51,20 @@ export class MatchesComponent implements OnInit {
     }
   
 
-  // Función para eliminar un partido
+
   deleteMatch(idMatch: number): void {
     if (confirm('¿Estás seguro de eliminar este partido?')) {
       this.matchesService.deleteMatches(idMatch).subscribe({
         next: () => {
           console.log('Partido eliminado:', idMatch);
-          this.loadMatches(); // Recargar los partidos después de eliminar
+          this.loadMatches(); 
         },
         error: (err) => console.error('Error al eliminar el partido:', err),
       });
     }
   }
 
-  // Función para navegar a la página de creación de partido
+
   navigateToCreate(): void {
     this.router.navigate(['createMatch']);
   }

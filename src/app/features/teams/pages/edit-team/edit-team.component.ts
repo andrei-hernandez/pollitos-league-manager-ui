@@ -18,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true
 })
 export class EditTeamComponent implements OnInit {
-  team: Team = { idteam: 0, idLeague: 0, teamname: '' }; // Inicializa el equipo
+  team: Team = { idteam: 0, idLeague: 0, teamname: '' }; 
   teamId: number = 0;
 
   constructor(
@@ -36,23 +36,22 @@ export class EditTeamComponent implements OnInit {
   loadTeam(teamId: number): void {
     this.teamsService.getTeams().subscribe({
       next: (data) => {
-        console.log('Equipos cargados:', data); // Agrega este log para revisar la respuesta
+        console.log('Equipos cargados:', data);
         this.team = data.find(t => t.idteam === teamId) || { idteam: teamId, idLeague: 0, teamname: '' };
         if (!this.team.idteam) {
           console.error('Equipo no encontrado');
         } else {
-          console.log('Equipo encontrado:', this.team); // Log del equipo encontrado
+          console.log('Equipo encontrado:', this.team);
         }
       },
       error: (err) => console.error('Error al cargar los equipos:', err),
     });
   }
   updateTeam(): void {
-    // Actualiza el equipo utilizando el servicio
     this.teamsService.updateTeam(this.team.idteam, this.team).subscribe({
       next: (updatedTeam) => {
         console.log('Equipo actualizado:', updatedTeam);
-        this.router.navigate(['']); // Redirige a la lista de equipos
+        this.router.navigate(['']); 
       },
       error: (err) => console.error('Error al actualizar el equipo:', err),
     });

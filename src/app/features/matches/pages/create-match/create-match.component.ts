@@ -16,7 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class CreateMatchComponent {
  matches: Match[] = [];
-  newMatch: Partial<Match> = {}; // Cambiar a Partial para aceptar valores opcionales.
+  newMatch: Partial<Match> = {};
   matchToEdit: Match | null = null;
 
   constructor(private matchService: MatchesService) {}
@@ -40,12 +40,12 @@ export class CreateMatchComponent {
   }
 
   createMatch(): void {
-    console.log('Datos del formulario:', this.newMatch); // Agregar esta línea para depurar
+    console.log('Datos del formulario:', this.newMatch); 
     if (this.newMatch.idleague && this.newMatch.localteamid && this.newMatch.visitteamid) {
       this.matchService.createMatch(this.newMatch as Match).subscribe(
         (match: Match) => {
           this.matches.push(match);
-          this.newMatch = {}; // Reinicia el formulario
+          this.newMatch = {}; 
           console.log('Match created:', match);
         },
         error => {
@@ -58,7 +58,7 @@ export class CreateMatchComponent {
   }
 
   editMatch(match: Match): void {
-    this.matchToEdit = { ...match }; // Crea una copia para evitar modificar directamente el array
+    this.matchToEdit = { ...match };
   }
 
   deleteMatch(idMatch: number): void {
