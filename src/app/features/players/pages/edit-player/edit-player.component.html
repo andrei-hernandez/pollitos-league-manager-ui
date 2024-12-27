@@ -1,23 +1,39 @@
 <div class="container">
-    <h2>Editar Jugador</h2>
-  
-    <form (ngSubmit)="updatePlayer()" #playerForm="ngForm">
-      <div class="form-group">
-        <label for="namePlayer">Nombre:</label>
-        <input type="text" id="namePlayer" class="form-control" [(ngModel)]="player.namePlayer" name="namePlayer" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="idLeague">ID Liga:</label>
-        <input type="number" id="idLeague" class="form-control" [(ngModel)]="player.idLeague" name="idLeague" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="idTeam">ID Equipo:</label>
-        <input type="number" id="idTeam" class="form-control" [(ngModel)]="player.idTeam" name="idTeam" required>
-      </div>
-  
-      <button type="submit" class="btn btn-success">Actualizar Jugador</button>
-    </form>
-  </div>
-  
+  <h2>Editar Jugador</h2>
+
+  <form (ngSubmit)="updatePlayer()" #playerForm="ngForm">
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" id="namePlayer" [(ngModel)]="player.namePlayer" name="namePlayer" required>
+        <mat-error *ngIf="playerForm.submitted && !player.namePlayer">
+          El nombre es obligatorio.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>ID Liga</mat-label>
+        <input matInput type="number" id="idLeague" [(ngModel)]="player.idLeague" name="idLeague" required>
+        <mat-error *ngIf="playerForm.submitted && !player.idLeague">
+          El ID de la liga es obligatorio.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>ID Equipo</mat-label>
+        <input matInput type="number" id="idTeam" [(ngModel)]="player.idTeam" name="idTeam" required>
+        <mat-error *ngIf="playerForm.submitted && !player.idTeam">
+          El ID del equipo es obligatorio.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="playerForm.invalid">
+      Actualizar Jugador
+    </button>
+  </form>
+</div>

@@ -1,35 +1,38 @@
 <div class="container">
-    <h2>Editar Equipo</h2>
-  
-    <form (ngSubmit)="updateTeam()">
-      <div class="mb-3">
-        <label for="teamname" class="form-label">Nombre del Equipo</label>
+  <h2>Editar Equipo</h2>
+
+  <form (ngSubmit)="updateTeam()">
+    <div class="mb-3">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Nombre del Equipo</mat-label>
         <input
+          matInput
           type="text"
           id="teamname"
-          class="form-control"
           [(ngModel)]="team.teamname"
           name="teamname"
           required
           placeholder="Nombre del equipo"
         />
-      </div>
-  
-      <div class="mb-3">
-        <label for="idLeague" class="form-label">ID Liga</label>
+      </mat-form-field>
+    </div>
+
+    <div class="mb-3">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>ID Liga</mat-label>
         <input
+          matInput
           type="number"
           id="idLeague"
-          class="form-control"
           [(ngModel)]="team.idLeague"
           name="idLeague"
           required
           placeholder="Ingrese ID de la liga"
         />
-      </div>
-  
-      <button type="submit" class="btn btn-primary">Actualizar Equipo</button>
-      <a [routerLink]="['/teams']" class="btn btn-secondary ml-2">Cancelar</a>
-    </form>
-  </div>
-  
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">Actualizar Equipo</button>
+    <a [routerLink]="['/teams']" mat-raised-button color="warn" class="ml-2">Cancelar</a>
+  </form>
+</div>

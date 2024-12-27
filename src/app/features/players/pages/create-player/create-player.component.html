@@ -1,66 +1,77 @@
 <div class="container">
-    <h2>Agregar Jugador</h2>
-  
-    <form (ngSubmit)="createPlayer()" #playerForm="ngForm">
-      <div class="form-group">
-        <label for="namePlayer">Nombre del Jugador</label>
+  <h2>Agregar Jugador</h2>
+
+  <form (ngSubmit)="createPlayer()" #playerForm="ngForm">
+    <!-- Nombre del Jugador -->
+    <div class="form-group">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Nombre del Jugador</mat-label>
         <input
+          matInput
           type="text"
           id="namePlayer"
-          class="form-control"
           [(ngModel)]="player.namePlayer"
           name="namePlayer"
           required
           #namePlayer="ngModel"
         />
-        <div *ngIf="namePlayer.invalid && namePlayer.touched" class="text-danger">
+        <mat-error *ngIf="namePlayer.invalid && namePlayer.touched">
           El nombre es obligatorio.
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label for="idLeague">ID Liga</label>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- ID de la Liga -->
+    <div class="form-group">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>ID Liga</mat-label>
         <input
+          matInput
           type="number"
           id="idLeague"
-          class="form-control"
           [(ngModel)]="player.idLeague"
           name="idLeague"
           required
           #idLeague="ngModel"
         />
-        <div *ngIf="idLeague.invalid && idLeague.touched" class="text-danger">
+        <mat-error *ngIf="idLeague.invalid && idLeague.touched">
           El ID de la liga es obligatorio.
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label for="idTeam">ID Equipo</label>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- ID del Equipo -->
+    <div class="form-group">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>ID Equipo</mat-label>
         <input
+          matInput
           type="number"
           id="idTeam"
-          class="form-control"
           [(ngModel)]="player.idTeam"
           name="idTeam"
           required
           #idTeam="ngModel"
         />
-        <div *ngIf="idTeam.invalid && idTeam.touched" class="text-danger">
+        <mat-error *ngIf="idTeam.invalid && idTeam.touched">
           El ID del equipo es obligatorio.
-        </div>
-      </div>
-  
-      <button
-        type="submit"
-        class="btn btn-primary"
-        [disabled]="playerForm.invalid"
-      >
-        Crear Jugador
-      </button>
-    </form>
- 
-    <div *ngIf="successMessage" class="alert alert-success mt-3">
-      {{ successMessage }}
+        </mat-error>
+      </mat-form-field>
     </div>
+
+    <!-- Botón de Crear Jugador -->
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="playerForm.invalid"
+    >
+      Crear Jugador
+    </button>
+  </form>
+
+  <!-- Mensaje de éxito -->
+  <div *ngIf="successMessage" class="alert alert-success mt-3">
+    {{ successMessage }}
   </div>
-  
+</div>

@@ -3,13 +3,16 @@ import { MatchesService } from '../../services/matches.service';
 import { Match } from 'src/app/features/matches/models/match.model';
 import { CommonModule } from '@angular/common'; 
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
   selector: 'app-create-match',
   templateUrl: './create-match.component.html',
   styleUrl: './create-match.component.css',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,  MatButtonModule,MatFormFieldModule,MatInputModule],
 })
 export class CreateMatchComponent {
  matches: Match[] = [];

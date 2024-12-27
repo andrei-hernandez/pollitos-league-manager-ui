@@ -4,12 +4,17 @@ import { Team } from 'src/app/features/teams/models/team.model';
 import { CommonModule } from '@angular/common'; 
 import { RouterModule } from '@angular/router'; 
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table'; 
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-teams',
   templateUrl: './teams.component.html',
   styleUrls: ['./teams.component.css'],
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, MatButtonModule, MatInputModule, MatFormFieldModule,  MatTableModule, MatIconModule],
   standalone: true,
 })
 export class TeamsComponent implements OnInit {
@@ -17,12 +22,13 @@ export class TeamsComponent implements OnInit {
   filteredTeams: Team[] = []; 
   searchTeamId: number = 0; 
 
+  displayedColumns: string[] = ['idteam', 'teamname', 'idLeague', 'actions']; // Definir las columnas que se mostrarán en la tabla
+
   constructor(private teamsService: TeamsService) {}
 
   ngOnInit(): void {
     this.loadTeams();
   }
-
 
   loadTeams(): void {
     this.teamsService.getTeams().subscribe({
@@ -34,7 +40,6 @@ export class TeamsComponent implements OnInit {
     });
   }
 
-
   searchTeam(): void {
     if (this.searchTeamId) {
       this.filteredTeams = this.teams.filter(
@@ -45,13 +50,12 @@ export class TeamsComponent implements OnInit {
     }
   }
 
-  // Eliminar un equipo
   deleteTeam(id: number): void {
     if (confirm('¿Estás seguro de que deseas eliminar este equipo?')) {
       this.teamsService.deleteTeam(id).subscribe({
         next: () => {
           this.loadTeams(); 
-          alert('Los miembtos del equipo se ham eliminado correctamente');
+          alert('El equipo ha sido eliminado correctamente');
         },
         error: (err) => console.error('Error al eliminar el equipo:', err),
       });

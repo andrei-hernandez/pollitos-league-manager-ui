@@ -1,24 +1,33 @@
 <form (ngSubmit)="createMatch()" #matchForm="ngForm">
-    <label for="idLeague">Liga:</label>
-    <input [(ngModel)]="newMatch.idleague" placeholder="ID de la Liga" type="number" name="idLeague" required>
-    <br>
+  <mat-form-field appearance="fill" class="d-block">
+    <mat-label>Liga</mat-label>
+    <input matInput [(ngModel)]="newMatch.idleague" placeholder="ID de la Liga" type="number" name="idLeague" required>
+    <mat-error *ngIf="matchForm.submitted && !newMatch.idleague">El ID de la liga es obligatorio</mat-error>
+  </mat-form-field>
   
-    <label for="localTeamId">Equipo Local:</label>
-    <input [(ngModel)]="newMatch.localteamid" placeholder="ID Equipo Local" type="number" name="localTeamId" required>
-    <br>
+  <mat-form-field appearance="fill" class="d-block">
+    <mat-label>Equipo Local</mat-label>
+    <input matInput [(ngModel)]="newMatch.localteamid" placeholder="ID Equipo Local" type="number" name="localTeamId" required>
+    <mat-error *ngIf="matchForm.submitted && !newMatch.localteamid">El ID del equipo local es obligatorio</mat-error>
+  </mat-form-field>
   
-    <label for="visitTeamid">Equipo Visitante:</label>
-    <input [(ngModel)]="newMatch.visitteamid" placeholder="ID Equipo Visitante" type="number" name="visitTeamid" required>
-    <br>
+  <mat-form-field appearance="fill" class="d-block">
+    <mat-label>Equipo Visitante</mat-label>
+    <input matInput [(ngModel)]="newMatch.visitteamid" placeholder="ID Equipo Visitante" type="number" name="visitTeamid" required>
+    <mat-error *ngIf="matchForm.submitted && !newMatch.visitteamid">El ID del equipo visitante es obligatorio</mat-error>
+  </mat-form-field>
   
-    <label for="goalLocal">Goles Local:</label>
-    <input [(ngModel)]="newMatch.goallocal" placeholder="Goles Local" type="number" name="goalLocal" required>
-    <br>
+  <mat-form-field appearance="fill" class="d-block">
+    <mat-label>Goles Local</mat-label>
+    <input matInput [(ngModel)]="newMatch.goallocal" placeholder="Goles Local" type="number" name="goalLocal" required>
+    <mat-error *ngIf="matchForm.submitted && !newMatch.goallocal">Los goles del equipo local son obligatorios</mat-error>
+  </mat-form-field>
   
-    <label for="goalVisit">Goles Visitante:</label>
-    <input [(ngModel)]="newMatch.goalVisit" placeholder="Goles Visitante" type="number" name="goalVisit" required>
-    <br>
+  <mat-form-field appearance="fill" class="d-block">
+    <mat-label>Goles Visitante</mat-label>
+    <input matInput [(ngModel)]="newMatch.goalVisit" placeholder="Goles Visitante" type="number" name="goalVisit" required>
+    <mat-error *ngIf="matchForm.submitted && !newMatch.goalVisit">Los goles del equipo visitante son obligatorios</mat-error>
+  </mat-form-field>
   
-    <button type="submit" [disabled]="!matchForm.valid">Crear Partido</button>
-  </form>
-  
+  <button mat-raised-button color="primary" type="submit" [disabled]="!matchForm.valid">Crear Partido</button>
+</form>

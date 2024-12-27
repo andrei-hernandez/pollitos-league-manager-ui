@@ -1,54 +1,55 @@
 <div class="container">
-    <h2>Lista de Equipos</h2>
-  
-    <!-- Campo de búsqueda -->
-    <div class="mb-3">
-      <label for="teamId">Buscar Equipo por ID</label>
+  <h2>Lista de Equipos</h2>
+  <div class="mb-3">
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Buscar Equipo por ID</mat-label>
       <input
+        matInput
         type="number"
         id="teamId"
-        class="form-control"
         [(ngModel)]="searchTeamId"
         placeholder="Ingrese el ID del equipo"
       />
-      <button class="btn btn-info mt-2" (click)="searchTeam()">Buscar</button>
-    </div>
-  
-    <!-- Botón para crear nuevo equipo -->
-    <div class="mb-3">
-      <button class="btn btn-primary" [routerLink]="['/createTeam']">Crear Equipo</button>
-    </div>
-  
-    <!-- Tabla de Equipos -->
-    <table class="table table-bordered mt-3">
-      <thead>
-        <tr>
-          <th>ID Equipo</th>
-          <th>Nombre del Equipo</th>
-          <th>ID Liga</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let team of filteredTeams">
-          <td>{{ team.idteam }}</td>
-          <td>{{ team.teamname }}</td>
-          <td>{{ team.idLeague }}</td>
-          <td>
-            <!-- Acción de Editar -->
-            <button class="btn btn-primary" >
-              <a [routerLink]="['/editTeam', team.idteam]">Editar</a>
-            </button>
-            <!-- Acción de Eliminar -->
-            <button
-              class="btn btn-danger btn-sm"
-              (click)="deleteTeam(team.idteam)"
-            >
-              Eliminar
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    </mat-form-field>
+    <button mat-raised-button color="accent" class="mt-2" (click)="searchTeam()">Buscar</button>
   </div>
-  
+
+  <div class="mb-3">
+    <button mat-raised-button color="primary" [routerLink]="['/createTeam']">Crear Equipo</button>
+  </div>
+
+  <table mat-table [dataSource]="filteredTeams" class="mat-elevation-z8">
+    <ng-container matColumnDef="idteam">
+      <th mat-header-cell *matHeaderCellDef> ID Equipo </th>
+      <td mat-cell *matCellDef="let team"> {{ team.idteam }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="teamname">
+      <th mat-header-cell *matHeaderCellDef> Nombre del Equipo </th>
+      <td mat-cell *matCellDef="let team"> {{ team.teamname }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="idLeague">
+      <th mat-header-cell *matHeaderCellDef> ID Liga </th>
+      <td mat-cell *matCellDef="let team"> {{ team.idLeague }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let team">
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+          <button mat-icon-button color="primary">
+            <a [routerLink]="['/editTeam', team.idteam]" class="mat-button">Editar</a>
+          </button>
+          
+        </div>
+        <button mat-icon-button color="warn" (click)="deleteTeam(team.idteam)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

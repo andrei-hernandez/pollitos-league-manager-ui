@@ -5,12 +5,16 @@ import { Team } from 'src/app/features/teams/models/team.model';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @Component({
   selector: 'app-edit-team',
   templateUrl: './edit-team.component.html',
   styleUrls: ['./edit-team.component.css'],
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, MatButtonModule, MatInputModule, MatFormFieldModule],
   standalone: true
 })
 export class EditTeamComponent implements OnInit {

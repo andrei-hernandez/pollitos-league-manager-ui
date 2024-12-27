@@ -2,7 +2,7 @@
   <h2>Lista de Jugadores</h2>
 
   <div class="mb-3">
-    <label for="playerId">Buscar Jugador por ID</label>
+    <label for="playerId">Mostrar Jugadores por Equipo</label>
     <input
       type="number"
       id="playerId"
@@ -10,36 +10,45 @@
       [(ngModel)]="searchPlayerId"
       placeholder="Ingrese el ID del jugador"
     />
-    <button class="btn btn-info mt-2" (click)="searchPlayer(searchPlayerId)">Buscar</button>
+
+    <button mat-raised-button color="primary" class="mt-2" (click)="searchPlayer(searchPlayerId)">Buscar</button>
   </div>
 
-  <!-- Botón para Crear Jugador -->
   <div class="mb-3">
-    <button class="btn btn-primary mt-2" [routerLink]="['/createPlayer']">Crear Jugador</button>
+    <button mat-raised-button color="accent" class="mt-2" [routerLink]="['/createPlayer']">Crear Jugador</button>
   </div>
 
-  <table class="table table-bordered mt-3">
-    <thead>
-      <tr>
-        <th>ID Jugador</th>
-        <th>Nombre</th>
-        <th>ID Liga</th>
-        <th>ID Equipo</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let player of filteredPlayers; let i = index">
-        <td>{{ player.idPlayer }}</td>
-        <td>{{ player.namePlayer }}</td>
-        <td>{{ player.idLeague }}</td>
-        <td>{{ player.idTeam }}</td>
-        <td>
-          <button class="btn btn-warning btn-sm">
-            <a [routerLink]="['/editPlayer', player.idPlayer]">Editar</a>
-          </button>
-        </td>
-      </tr>
-    </tbody>
+  <table mat-table [dataSource]="filteredPlayers" class="mat-elevation-z8">
+    <ng-container matColumnDef="idPlayer">
+      <th mat-header-cell *matHeaderCellDef> ID Jugador </th>
+      <td mat-cell *matCellDef="let player"> {{ player.idPlayer }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="namePlayer">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let player"> {{ player.namePlayer }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="idLeague">
+      <th mat-header-cell *matHeaderCellDef> ID Liga </th>
+      <td mat-cell *matCellDef="let player"> {{ player.idLeague }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="idTeam">
+      <th mat-header-cell *matHeaderCellDef> ID Equipo </th>
+      <td mat-cell *matCellDef="let player"> {{ player.idTeam }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let player">
+        <button mat-icon-button color="accent">
+          <a [routerLink]="['/editPlayer', player.idPlayer]" class="mat-button">Editar</a>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
