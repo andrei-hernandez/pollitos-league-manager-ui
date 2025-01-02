@@ -24,5 +24,10 @@ export class PlayersService {
   updatePlayer(id: number, player: Player): Observable<Player> {
     return this.http.put<Player>(`${this.apiUrl}${id}`, player);
   }
-  
+  searchPlayers(idTeam: number, idLeague : number): Observable<Player[]> {
+    return this.http.get<Player[]>(`${this.apiUrl}${idTeam}/${idLeague}`);
+
+
+  }
+
 }

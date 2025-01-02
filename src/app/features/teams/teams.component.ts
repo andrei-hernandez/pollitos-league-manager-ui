@@ -1,28 +1,40 @@
-import { Component, OnInit } from '@angular/core';
 import { TeamsService } from 'src/app/features/teams/services/teams.service';
 import { Team } from 'src/app/features/teams/models/team.model';
-import { CommonModule } from '@angular/common'; 
-import { RouterModule } from '@angular/router'; 
-import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
+
+import { RouterModule } from '@angular/router';
+import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatTableModule } from '@angular/material/table'; 
 import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-teams',
   templateUrl: './teams.component.html',
   styleUrls: ['./teams.component.css'],
-  imports: [CommonModule, RouterModule, FormsModule, MatButtonModule, MatInputModule, MatFormFieldModule,  MatTableModule, MatIconModule],
   standalone: true,
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatIconModule,
+  ],
 })
 export class TeamsComponent implements OnInit {
-  teams: Team[] = []; 
-  filteredTeams: Team[] = []; 
-  searchTeamId: number = 0; 
+  teams: Team[] = [];
+  filteredTeams: Team[] = [];
+  searchTeamId: number = 0;
 
-  displayedColumns: string[] = ['idteam', 'teamname', 'idLeague', 'actions']; 
+  displayedColumns: string[] = ['idteam', 'teamname', 'idLeague', 'actions'];
 
   constructor(private teamsService: TeamsService) {}
 
@@ -31,33 +43,36 @@ export class TeamsComponent implements OnInit {
   }
 
   loadTeams(): void {
-    this.teamsService.getTeams().subscribe({
-      next: (data) => {
+    let idLeague = localStorage.getItem('selectedLeagueId');
+      const idLeagueNumber = Number(idLeague);
+    this.teamsService.getTeamsbyLeague(idLeagueNumber).subscribe({
+      next: (data: Team[]) => {
         this.teams = data;
         this.filteredTeams = data;
       },
-      error: (err) => console.error('Error al cargar los equipos:', err),
+      error: (err: any) => {
+        console.error('Error al cargar los equipos:', err);
+      },
     });
   }
 
   searchTeam(): void {
-    if (this.searchTeamId) {
-      this.filteredTeams = this.teams.filter(
-        (team) => team.idteam === this.searchTeamId
-      );
-    } else {
-      this.filteredTeams = this.teams; 
-    }
+    this.filteredTeams = this.searchTeamId
+      ? this.teams.filter((team) => team.idteam === this.searchTeamId)
+      : this.teams;
   }
 
   deleteTeam(id: number): void {
-    if (confirm('¿Estás seguro de que deseas eliminar este equipo?')) {
+    const confirmDelete = confirm('¿Estás seguro de que deseas eliminar los jugadores de este equipo?');
+    if (confirmDelete) {
       this.teamsService.deleteTeam(id).subscribe({
         next: () => {
-          this.loadTeams(); 
-          alert('El equipo ha sido eliminado correctamente');
+          this.loadTeams();
+          alert('Los jugadores en el equipo han sido eliminado correctamente');
         },
-        error: (err) => console.error('Error al eliminar el equipo:', err),
+        error: (err: any) => {
+          console.error('Error al eliminar el equipo:', err);
+        },
       });
     }
   }

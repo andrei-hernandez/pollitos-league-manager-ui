@@ -6,4 +6,25 @@
     <button mat-raised-button color="accent" routerLink="Team">Ir a Team</button>
     <button mat-raised-button color="warn" routerLink="Players">Ir a Player</button>
   </div>
+
+  <h2>Lista de Ligas</h2>
+  <table mat-table [dataSource]="leagues" class="mat-elevation-z8">
+    <ng-container matColumnDef="idLeague">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let league"> {{ league.idLeague }} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="nameleague">
+      <th mat-header-cell *matHeaderCellDef> Nombre de Liga </th>
+      <td mat-cell *matCellDef="let league"> {{ league.nameleague }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr 
+      mat-row 
+      *matRowDef="let league; columns: displayedColumns;" 
+      (click)="onSelectLeague(league)"
+      class="clickable-row">
+    </tr>
+  </table>
 </div>

@@ -16,12 +16,19 @@ export class MatchesService {
     return this.http.post<Match>(this.apiUrl + "/", match);
   }
 
-  getMatches(teamId: number): Observable<Match[]> {
-    const url = `${this.apiUrl}/team/${teamId}`;
+  getMatches(teamId: number, idLeague: number): Observable<Match[]> {
+    const url = `${this.apiUrl}/team/${teamId}/${idLeague}`;
     return this.http.get<Match[]>(url);
   }
   deleteMatches(idMatch: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/matches`);
   }
+
+  getLeague(idLeague: number): Observable<Match[]> {
+    const url = `${this.apiUrl}/team/league${idLeague}`;
+    return this.http.get<Match[]>(url);
+  }
+  
+
  
 }

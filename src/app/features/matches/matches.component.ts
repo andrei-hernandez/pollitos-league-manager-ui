@@ -37,9 +37,11 @@ export class MatchesComponent implements OnInit {
   }
 
 
-  loadMatches(teamId: number = 1): void {
-    if (teamId) {
-      this.matchesService.getMatches(teamId).subscribe({
+  loadMatches( ): void {
+    let idLeague = localStorage.getItem('selectedLeagueId');
+    const idLeagueNumber = Number(idLeague);
+    if (idLeagueNumber) {
+      this.matchesService.getLeague(idLeagueNumber).subscribe({
         next: (data) => {
           this.matches = data;
           console.log('Partidos cargados:', data);
@@ -49,6 +51,22 @@ export class MatchesComponent implements OnInit {
     } 
       
     }
+
+  searchMatches(teamId: number ): void {
+    let idLeague = localStorage.getItem('selectedLeagueId');
+    const idLeagueNumber = Number(idLeague);
+    if (teamId) {
+      this.matchesService.getMatches(teamId,idLeagueNumber).subscribe({
+        next: (data) => {
+          this.matches = data;
+          console.log('Partidos cargados:', data);
+        },
+        error: (err) => console.error('Error al cargar los partidos:', err),
+      });
+    } 
+      
+    }
+   
   
 
 

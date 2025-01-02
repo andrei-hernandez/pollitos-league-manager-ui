@@ -3,9 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './features/home/home.component'; // Si tienes el componente Home
-import { MatchesComponent } from './features/matches/matches.component'; // Asegúrate de que este componente esté correctamente importado
-import { CreatePlayerComponent } from './features/players/pages/create-player/create-player.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -28,7 +25,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-   HomeComponent,
    BrowserModule,
    BrowserAnimationsModule,
    MatButtonModule,

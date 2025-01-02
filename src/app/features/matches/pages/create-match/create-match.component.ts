@@ -22,22 +22,10 @@ export class CreateMatchComponent {
   constructor(private matchService: MatchesService) {}
 
   ngOnInit(): void {
-    this.loadMatches(); 
+
   }
 
-  loadMatches(idTeam?: number): void {
-    if (idTeam !== undefined) {
-      this.matchService.getMatches(idTeam).subscribe(
-        (data: Match[]) => {
-          this.matches = data;
-          console.log('Matches:', this.matches); 
-        },
-        error => {
-          console.error('Error al cargar los partidos', error);
-        }
-      );
-    }
-  }
+  
 
   createMatch(): void {
     console.log('Datos del formulario:', this.newMatch); 

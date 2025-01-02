@@ -29,7 +29,9 @@ export class PlayersComponent implements OnInit {
   }
 
   loadPlayers(): void {
-    this.playersService.getPlayers(this.teamId).subscribe({
+    let idLeague = localStorage.getItem('selectedLeagueId');
+      const idLeagueNumber = Number(idLeague);
+    this.playersService.getPlayers(idLeagueNumber).subscribe({
       next: (data) => {
         this.players = data;
         this.filteredPlayers = data;
@@ -39,12 +41,14 @@ export class PlayersComponent implements OnInit {
   }
 
   searchPlayer(searchTeam: number): void {
-    this.playersService.getPlayers(searchTeam).subscribe({
+    let idLeague = localStorage.getItem('selectedLeagueId');
+    const idLeagueNumber = Number(idLeague);
+    this.playersService.searchPlayers(searchTeam, idLeagueNumber).subscribe({
       next: (data) => {
         this.players = data;
         this.filteredPlayers = data;
       },
-      error: (err) => console.error('Error al cargar los jugadores:', err),
+      error: (err) => console.error('No se hayaron jugadores:', err),
     });
   }
 }

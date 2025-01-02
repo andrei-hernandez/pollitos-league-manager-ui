@@ -1,11 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-
-
-
-
-
   export const routes: Routes = [
     {
       path: '',
@@ -51,9 +45,7 @@ import { RouterModule, Routes } from '@angular/router';
     {
       path: 'createTeam',
       loadComponent: () =>
-        import('./features/teams/pages/create-team/create-team.component').then(
-          (m) => m.CreateTeamComponent
-        ),
+        import('./features/teams/pages/create-team/create-team.component')
     },
     {
       path: 'editTeam/:idteam',
@@ -64,14 +56,6 @@ import { RouterModule, Routes } from '@angular/router';
     },
   ];
   
- 
-
-
-
-
-
-
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

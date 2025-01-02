@@ -1,0 +1,122 @@
+/* Estilo para la sección principal */
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+  }
+  
+  /* Título */
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #007BFF; /* Azul */
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para el botón de Crear Partido */
+  button {
+    background-color: #007BFF; /* Azul */
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para el botón de hover */
+  button:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+  }
+  
+  /* Estilo de la barra de búsqueda */
+  .search {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search .mat-form-field {
+    margin-right: 10px;
+    flex: 1;
+  }
+  
+  .search .search-input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Estilo para el botón de búsqueda */
+  button.ml-2 {
+    background-color: #FF4081; /* Color de acento */
+    color: white;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button.ml-2:hover {
+    background-color: #e60073; /* Rosa más oscuro */
+  }
+  
+  /* Estilo para la tabla */
+  table.mat-elevation-z8 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  /* Estilo de las celdas y las cabeceras de la tabla */
+  th.mat-header-cell, td.mat-cell {
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th.mat-header-cell {
+    background-color: #f1f1f1;
+    color: #007BFF; /* Azul */
+    font-weight: bold;
+  }
+  
+  td.mat-cell {
+    color: #333; /* Color oscuro para el texto */
+  }
+  
+  /* Estilo para los iconos del botón de eliminar */
+  button.mat-icon-button {
+    background-color: #FF4D4D; /* Rojo para el icono de eliminar */
+    color: white;
+    border-radius: 50%;
+    padding: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.mat-icon-button:hover {
+    background-color: #e60000; /* Rojo más oscuro */
+  }
+  
+  /* Estilo de la fila de la tabla */
+  tr.mat-row:hover {
+    background-color: #f7f7f7;
+  }
+  
+  /* Estilo para las filas vacías */
+  tr.mat-row td {
+    text-align: center;
+  }
+  
+  /* Resaltar las celdas vacías de la tabla */
+  td.mat-cell.empty {
+    color: #999;
+  }
+  
