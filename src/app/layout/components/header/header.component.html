@@ -1,0 +1,49 @@
+<nav class="space-y-9">
+  <div class="w-fit flex flex-wrap items-center justify-between mx-auto py-4 bg-pink-500 text-white rounded-md shadow-lg">
+    <div class="flex items-center space-x-8">
+      <ul class="flex space-x-6">
+        <li>
+          <a [routerLink]="leagueService.currentLeaguePath" [routerLinkActive]="'text-pink-900'" [routerLinkActiveOptions]="{exact: true}" class="block items-center space-x-2 px-4 hover:text-pink-900" aria-current="page">
+            <i class="pi pi-home"></i>
+            Home
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="[leagueService.currentLeaguePath, 'teams']" [routerLinkActive]="'text-pink-900'" class="block items-center space-x-2 px-4 hover:text-pink-900">
+            <i class="pi pi-users"></i>
+            Teams
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="[leagueService.currentLeaguePath, 'players']" [routerLinkActive]="'text-pink-900'" class="block items-center space-x-2 px-4 hover:text-pink-900">
+            <i class="pi pi-user"></i>
+            Players
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="[leagueService.currentLeaguePath, 'matches']" [routerLinkActive]="'text-pink-900'" class="block items-center space-x-2 px-4 hover:text-pink-900">
+            <i class="pi pi-sitemap"></i>
+            Matches
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
