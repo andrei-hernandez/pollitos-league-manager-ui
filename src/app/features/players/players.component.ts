@@ -6,12 +6,12 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table'; 
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-players',
   templateUrl: './players.component.html',
   styleUrls: ['./players.component.css'],
-  imports: [CommonModule, RouterModule, FormsModule, MatTableModule, MatButtonModule],
+  imports: [CommonModule, RouterModule, FormsModule, MatTableModule, MatButtonModule, MatIconModule],
   standalone: true
 })
 export class PlayersComponent implements OnInit {

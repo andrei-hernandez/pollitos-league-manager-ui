@@ -51,7 +51,7 @@ export class EditTeamComponent implements OnInit {
     this.teamsService.updateTeam(this.team.idteam, this.team).subscribe({
       next: (updatedTeam) => {
         console.log('Equipo actualizado:', updatedTeam);
-        this.router.navigate(['']); 
+        this.router.navigate(['Team']); 
       },
       error: (err) => console.error('Error al actualizar el equipo:', err),
     });

@@ -1,4 +1,4 @@
-/* Estilo global para el formulario */
+
 form {
     background-color: white;
     padding: 20px;
@@ -16,25 +16,25 @@ form {
   
   
   mat-label {
-    color: #007BFF; /* Azul */
+    color: #007BFF;
     font-size: 14px;
     font-weight: 600;
   }
   
   
   mat-input-element {
-    color: #333; /* Color de texto oscuro */
+    color: #333; 
   }
   
-  /* Estilo para los mensajes de error */
+
   mat-error {
-    color: #FF4D4D; /* Rojo para los errores */
+    color: #FF4D4D;
     font-size: 12px;
   }
   
-  /* Estilo para el botón */
+
   button {
-    background-color: #007BFF; /* Azul */
+    background-color: #007BFF; 
     color: white;
     padding: 12px 20px;
     font-size: 14px;
@@ -44,14 +44,14 @@ form {
     transition: background-color 0.3s ease;
   }
   
-  /* Cambio de color del botón al pasar el ratón */
+
   button:hover {
-    background-color: #0056b3; /* Azul más oscuro */
+    background-color: #0056b3; 
   }
   
-  /* Deshabilitar el botón si el formulario no es válido */
+ 
   button:disabled {
-    background-color: #A5C6FF; /* Azul claro */
+    background-color: #A5C6FF;
     cursor: not-allowed;
   }
   

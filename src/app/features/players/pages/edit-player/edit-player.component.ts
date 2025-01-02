@@ -9,7 +9,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
-
 @Component({
   selector: 'app-edit-player',
   templateUrl: './edit-player.component.html',
@@ -18,8 +17,9 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true
 })
 export class EditPlayerComponent implements OnInit {
-  player: Player = { idPlayer: 0, namePlayer: '', idLeague: 0, idTeam: 0 }; 
+  player: Player = { idPlayer: 0, namePlayer: '', idLeague: 0, idTeam: 0 };
   playerId: number = 0;
+  successEditMessage: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,31 +28,43 @@ export class EditPlayerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.playerId = +this.route.snapshot.paramMap.get('id')!;
-    this.loadPlayer(this.playerId);
-    console.log('ID del equipo en la URL:', this.playerId);
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.playerId = +id;
+      this.loadPlayer(this.playerId);
+    } else {
+      console.error('ID de jugador no válido en la URL');
+      this.router.navigate(['/players']);
+    }
   }
 
   loadPlayer(playerId: number): void {
     this.playersService.getPlayers(1).subscribe({
       next: (data) => {
-        this.player = data.find(p => p.idPlayer === playerId) || { idPlayer: 0, namePlayer: '', idLeague: 0, idTeam: 0 };
-        if (!this.player.idPlayer) {
-          console.error('Jugador no encontrado');
-        } else {
+        const foundPlayer = data.find(p => p.idPlayer === playerId);
+        if (foundPlayer) {
+          this.player = foundPlayer;
           console.log('Jugador encontrado:', this.player);
+        } else {
+          console.error('Jugador no encontrado');
+          this.router.navigate(['/players']);
         }
       },
       error: (err) => console.error('Error al cargar los jugadores:', err),
     });
   }
-  
 
   updatePlayer(): void {
     this.playersService.updatePlayer(this.player.idPlayer, this.player).subscribe({
-      next: (updatedPlayer) => {
-        console.log('Jugador actualizado:', updatedPlayer);
-        
+      next: () => {
+        this.successEditMessage = 'Jugador editado con éxito.';
+        console.log(this.successEditMessage);
+
+       
+        setTimeout(() => {
+          this.successEditMessage = null;
+          this.router.navigate(['/Players']);
+        }, 3000);
       },
       error: (err) => console.error('Error al actualizar el jugador:', err),
     });

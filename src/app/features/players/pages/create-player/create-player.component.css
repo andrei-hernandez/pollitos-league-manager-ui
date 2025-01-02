@@ -1,4 +1,4 @@
-/* Contenedor principal */
+
 .container {
     background-color: white;
     padding: 30px;
@@ -9,33 +9,33 @@
     margin: 20px auto;
   }
   
-  /* Título */
+  
   h2 {
     font-size: 24px;
     font-weight: 600;
-    color: #007BFF; /* Azul */
+    color: #007BFF; 
     margin-bottom: 20px;
   }
   
-  /* Estilo para el formulario */
+
   form {
     display: flex;
     flex-direction: column;
   }
   
-  /* Estilo para los campos del formulario */
+
   .form-group {
     margin-bottom: 20px;
   }
   
-  /* Estilo para los mat-form-field */
+
   .mat-form-field {
     width: 100%;
   }
   
-  /* Estilo para el botón de submit */
+
   button {
-    background-color: #007BFF; /* Azul */
+    background-color: #007BFF; 
     color: white;
     padding: 10px 20px;
     font-size: 14px;
@@ -47,16 +47,16 @@
   }
   
   button:hover {
-    background-color: #0056b3; /* Azul más oscuro */
+    background-color: #0056b3; 
   }
   
-  /* Deshabilitar el botón cuando el formulario es inválido */
+
   button:disabled {
     background-color: #b3c6ff;
     cursor: not-allowed;
   }
   
-  /* Estilo para el mensaje de éxito */
+
   .alert.alert-success {
     background-color: #d4edda;
     color: #155724;
@@ -65,31 +65,31 @@
     border-radius: 5px;
   }
   
-  /* Estilo para el error de mat-error */
+
   mat-error {
-    color: #f44336; /* Rojo */
+    color: #f44336; 
     font-size: 12px;
     margin-top: 5px;
   }
   
-  /* Estilo para los campos requeridos */
+
   .mat-form-field .mat-input-element {
     font-size: 14px;
   }
   
-  /* Estilo para los labels */
+
   .mat-label {
     font-size: 14px;
     font-weight: 500;
     color: #333;
   }
   
-  /* Estilo para la validación de campos */
+
   .mat-form-field-appearance-fill .mat-form-field-flex {
     padding: 5px 10px;
   }
   
-  /* Estilo para los errores cuando un campo es tocado */
+
   .mat-form-field-appearance-fill .mat-form-field-infix {
     border-color: #f44336;
   }

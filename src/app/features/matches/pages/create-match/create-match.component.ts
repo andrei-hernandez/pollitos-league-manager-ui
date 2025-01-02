@@ -6,26 +6,22 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-create-match',
   templateUrl: './create-match.component.html',
   styleUrl: './create-match.component.css',
-  imports: [CommonModule, FormsModule,  MatButtonModule,MatFormFieldModule,MatInputModule],
+  imports: [CommonModule, FormsModule,  MatButtonModule,MatFormFieldModule,MatInputModule, RouterModule],
 })
 export class CreateMatchComponent {
  matches: Match[] = [];
   newMatch: Partial<Match> = {};
   matchToEdit: Match | null = null;
 
-  constructor(private matchService: MatchesService) {}
-
-  ngOnInit(): void {
-
-  }
-
-  
+  constructor(private matchService: MatchesService,  private router: Router ) {}
 
   createMatch(): void {
     console.log('Datos del formulario:', this.newMatch); 
@@ -35,6 +31,10 @@ export class CreateMatchComponent {
           this.matches.push(match);
           this.newMatch = {}; 
           console.log('Match created:', match);
+          alert('¡Partido creado con éxito!');
+          setTimeout(() => {
+            this.router.navigate(['/Match']); 
+          }, 2000);
         },
         error => {
           console.error('Error al crear el partido', error);
@@ -45,19 +45,4 @@ export class CreateMatchComponent {
     }
   }
 
-  editMatch(match: Match): void {
-    this.matchToEdit = { ...match };
-  }
-
-  deleteMatch(idMatch: number): void {
-    this.matchService.deleteMatches(idMatch).subscribe(
-      () => {
-        this.matches = this.matches.filter(m => m.idmatch !== idMatch);
-        console.log('Match deleted:', idMatch);
-      },
-      error => {
-        console.error('Error al eliminar el partido', error);
-      }
-    );
-  }
 }

@@ -36,4 +36,7 @@
       Actualizar Jugador
     </button>
   </form>
+  <div *ngIf="successEditMessage" class="alert alert-success mt-3">
+    {{ successEditMessage }}
+  </div>
 </div>

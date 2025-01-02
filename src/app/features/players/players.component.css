@@ -1,120 +1,108 @@
-/* Estilo para la sección principal */
 .container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 900px;
-    margin: 20px auto;
-  }
-  
-  /* Título */
-  h2 {
-    font-size: 24px;
-    font-weight: 600;
-    color: #007BFF; /* Azul */
-    margin-bottom: 20px;
-  }
-  
-  /* Estilo para los botones principales */
-  button {
-    background-color: #007BFF; /* Azul */
-    color: white;
-    padding: 10px 20px;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-right: 10px;
-  }
-  
-  /* Estilo para los botones de hover */
-  button:hover {
-    background-color: #0056b3; /* Azul más oscuro */
-  }
-  
-  /* Estilo para la barra de búsqueda */
-  .mb-3 {
-    margin-bottom: 20px;
-  }
-  
-  .mb-3 label {
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  .mb-3 input.form-control {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
-  
-  .mb-3 .mat-raised-button {
-    margin-top: 10px;
-  }
-  
-  /* Estilo para la tabla */
-  table.mat-elevation-z8 {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  /* Estilo de las celdas y las cabeceras de la tabla */
-  th.mat-header-cell, td.mat-cell {
-    padding: 12px;
-    text-align: left;
-    font-size: 14px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th.mat-header-cell {
-    background-color: #f1f1f1;
-    color: #007BFF; /* Azul */
-    font-weight: bold;
-  }
-  
-  td.mat-cell {
-    color: #333; /* Color oscuro para el texto */
-  }
-  
-  /* Estilo para los iconos de acción */
-  button.mat-icon-button {
-    background-color: #FF4D4D; /* Rojo para el icono de eliminar */
-    color: white;
-    border-radius: 50%;
-    padding: 8px;
-    transition: background-color 0.3s ease;
-  }
-  
-  button.mat-icon-button:hover {
-    background-color: #e60000; /* Rojo más oscuro */
-  }
-  
-  /* Estilo para las filas de la tabla */
-  tr.mat-row:hover {
-    background-color: #f7f7f7;
-  }
-  
-  /* Resaltar las celdas vacías de la tabla */
-  td.mat-cell.empty {
-    color: #999;
-  }
-  
-  /* Estilo para el enlace en la celda de acciones */
-  a.mat-button {
-    color: #007BFF;
-    text-decoration: none;
-  }
-  
-  a.mat-button:hover {
-    color: #0056b3;
-    text-decoration: underline;
-  }
-  
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #007BFF;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.mb-3 {
+  margin-bottom: 20px;
+}
+
+.mb-3 label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.mb-3 input.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.mb-3 .mat-raised-button {
+  margin-top: 10px;
+}
+
+table.mat-elevation-z8 {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th.mat-header-cell, td.mat-cell {
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+}
+
+th.mat-header-cell {
+  background-color: #f1f1f1;
+  color: #007BFF;
+  font-weight: bold;
+}
+
+td.mat-cell {
+  color: #333;
+}
+
+button.mat-icon-button {
+  background-color: #FF4D4D;
+  color: white;
+  border-radius: 50%;
+  padding: 8px;
+  transition: background-color 0.3s ease;
+}
+
+button.mat-icon-button:hover {
+  background-color: #e60000;
+}
+
+tr.mat-row:hover {
+  background-color: #f7f7f7;
+}
+
+td.mat-cell.empty {
+  color: #999;
+}
+
+a.mat-button {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+a.mat-button:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}

@@ -32,7 +32,7 @@ export default class CreateTeamComponent implements OnInit {
       this.teamsService.createTeam(this.team).subscribe({
         next: (newTeam) => {
           alert('Equipo creado exitosamente');
-          this.router.navigate(['']); 
+          this.router.navigate(['Team']); 
         },
         error: (err) => {
           console.error('Error al crear el equipo', err);
