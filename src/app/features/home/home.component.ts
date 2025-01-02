@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, RouterModule, FormsModule ,MatButtonModule, MatInputModule, MatFormFieldModule,  MatTableModule, MatIconModule],
   standalone : true,
 })
-export class HomeComponent implements OnInit {
+export default class HomeComponent implements OnInit {
   leagues: LeagueModel[] = [];
   displayedColumns: string[] = ['idLeague', 'nameleague'];
 

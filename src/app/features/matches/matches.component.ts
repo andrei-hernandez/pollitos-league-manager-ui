@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./matches.component.css'],
    imports: [CommonModule, RouterModule, FormsModule, MatButtonModule, MatInputModule, MatFormFieldModule,  MatTableModule, MatIconModule],
 })
-export class MatchesComponent implements OnInit {
+export default  class MatchesComponent implements OnInit {
   matches: Match[] = [];
   searchTeamId: number = 0;
   displayedColumns: string[] = [

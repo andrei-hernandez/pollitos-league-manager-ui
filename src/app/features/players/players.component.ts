@@ -14,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [CommonModule, RouterModule, FormsModule, MatTableModule, MatButtonModule, MatIconModule],
   standalone: true
 })
-export class PlayersComponent implements OnInit {
+export  default class PlayersComponent implements OnInit {
   players: Player[] = []; 
   filteredPlayers: Player[] = []; 
   teamId: number = 1; 

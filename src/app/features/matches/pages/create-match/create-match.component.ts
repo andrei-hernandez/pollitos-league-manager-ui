@@ -16,7 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './create-match.component.css',
   imports: [CommonModule, FormsModule,  MatButtonModule,MatFormFieldModule,MatInputModule, RouterModule],
 })
-export class CreateMatchComponent {
+export default class CreateMatchComponent {
  matches: Match[] = [];
   newMatch: Partial<Match> = {};
   matchToEdit: Match | null = null;

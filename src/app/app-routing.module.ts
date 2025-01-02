@@ -4,43 +4,37 @@ import { RouterModule, Routes } from '@angular/router';
     {
       path: '',
       loadComponent: () =>
-        import('./features/home/home.component').then((m) => m.HomeComponent),
+        import('./features/home/home.component')
     },
     {
       path: 'Match',
       loadComponent: () =>
-        import('./features/matches/matches.component').then((m) => m.MatchesComponent),
+        import('./features/matches/matches.component')
     },
     {
       path: 'createMatch',
       loadComponent: () =>
-        import('./features/matches/pages/create-match/create-match.component').then(
-          (m) => m.CreateMatchComponent
-        ),
+        import('./features/matches/pages/create-match/create-match.component')
     },
     {
       path: 'Players',
       loadComponent: () =>
-        import('./features/players/players.component').then((m) => m.PlayersComponent),
+        import('./features/players/players.component')
     },
     {
       path: 'createPlayer',
       loadComponent: () =>
-        import('./features/players/pages/create-player/create-player.component').then(
-          (m) => m.CreatePlayerComponent
-        ),
+        import('./features/players/pages/create-player/create-player.component')
     },
     {
       path: 'editPlayer/:id',
       loadComponent: () =>
-        import('./features/players/pages/edit-player/edit-player.component').then(
-          (m) => m.EditPlayerComponent
-        ),
+        import('./features/players/pages/edit-player/edit-player.component')
     },
     {
       path: 'Team',
       loadComponent: () =>
-        import('./features/teams/teams.component').then((m) => m.TeamsComponent),
+        import('./features/teams/teams.component')
     },
     {
       path: 'createTeam',
@@ -50,9 +44,8 @@ import { RouterModule, Routes } from '@angular/router';
     {
       path: 'editTeam/:idteam',
       loadComponent: () =>
-        import('./features/teams/pages/edit-team/edit-team.component').then(
-          (m) => m.EditTeamComponent
-        ),
+        import('./features/teams/pages/edit-team/edit-team.component')
+        
     },
   ];
   

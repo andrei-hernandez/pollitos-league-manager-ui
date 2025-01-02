@@ -17,7 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [CommonModule, RouterModule, FormsModule, MatButtonModule, MatInputModule, MatFormFieldModule],
   standalone: true
 })
-export class EditTeamComponent implements OnInit {
+export default class EditTeamComponent implements OnInit {
   team: Team = { idteam: 0, idLeague: 0, teamname: '' }; 
   teamId: number = 0;
 

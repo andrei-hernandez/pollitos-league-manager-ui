@@ -27,7 +27,7 @@ import { Team } from 'src/app/features/teams/models/team.model';
     MatIconModule,
   ],
 })
-export class TeamsComponent implements OnInit {
+export default class TeamsComponent implements OnInit {
   teams: Team[] = [];
   filteredTeams: Team[] = [];
   searchTeamId: number = 0;
