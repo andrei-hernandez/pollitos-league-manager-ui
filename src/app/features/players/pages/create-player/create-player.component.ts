@@ -33,7 +33,7 @@ export class CreatePlayerComponent implements OnInit {
         console.log('Jugador creado:', data);
         this.successMessage = 'Jugador registrado con éxito'; 
         setTimeout(() => {
-          this.router.navigate(['']); 
+          this.router.navigate(['/Players']); 
         }, 2000);
       },
       error: (err) => {

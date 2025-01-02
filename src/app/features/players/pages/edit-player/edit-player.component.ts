@@ -39,7 +39,9 @@ export class EditPlayerComponent implements OnInit {
   }
 
   loadPlayer(playerId: number): void {
-    this.playersService.getPlayers(1).subscribe({
+    let idLeague = localStorage.getItem('selectedLeagueId');
+    const idLeagueNumber = Number(idLeague);
+    this.playersService.getPlayers(idLeagueNumber).subscribe({
       next: (data) => {
         const foundPlayer = data.find(p => p.idPlayer === playerId);
         if (foundPlayer) {
