@@ -13,13 +13,12 @@ export class LeagueService {
   }
 
   get currentLeagueName(): string {
-    return this.leagues[this.currentLeagueIndex].charAt(0)
-      + this.leagues[this.currentLeagueIndex].slice(1)
+    return this.leagues[this.currentLeagueIndex]
   }
 
   get nextLeagueName(): string {
     const nextIndex = (this.currentLeagueIndex + 1) % this.leagues.length
-    return this.leagues[nextIndex].charAt(0) + this.leagues[nextIndex].slice(1)
+    return this.leagues[nextIndex]
   }
 
   toggleLeague() {

@@ -1,134 +1,48 @@
 # Welcome to pollitos-league-manager-ui
 
+## Description
 We are building a UI for a sports league management system. The application will manage two leagues: **Soccer League** and **Baseball League**. The UI will consume APIs that handle the data for these leagues, including teams, players, and matches.
 
-## Features and Functionality
+## Technologies Used
+- **Frontend**: Angular, PrimeNG, Tailwind CSS
+- **Backend**: Spring Boot
 
-### Pages to Create
+## Features
+- Manage teams, players, and matches.
+- Switch between active leagues.
+- Creation and editing components.
 
-- **Home Page:** A dashboard with links to Teams, Players, and Matches modules.
-- **Teams Module:**
-  - List Teams: Display all teams in the selected league.
-  - Create Team: A form to add a new team.
-  - Edit Team: A form to update a team’s information.
-  - Delete Players: A button to delete all players from a specific team.
-- **Players Module:**
-  - List Players: Display all players in a specific team.
-  - Create Player: A form to add a new player and assign them to a team.
-  - Edit Player: A form to update a player’s information.
-- **Matches Module:**
-  - Create Match: A form to create a match between two teams with their scores.
-  - View Matches: Display all matches for a specific team.
-  - Delete Matches: A button to delete all matches.
+## Backend API
 
-## UI Requirements
+This frontend application is designed to work with a API backend. You must set up and run the backend server to use the application fully.
 
-- Allow users to switch between the two leagues (Soccer League and Baseball League).
-- **Reusable Components:** Use reusable components for forms and tables.
-- **Validation:** Ensure valid inputs, such as the number of teams not exceeding the league's limit (default is 10).
-- **Styling:** Students can use any CSS framework, library, or custom styles.
+### API Setup
+1. Clone the backend repository:
+   ```bash
+   git clone https://github.com/fjpgtt/pollitos-league-manager.git
 
-## Criteria to Evaluate
+2. Switch to the specific branch
+   ```bash
+   git checkout Rocio-league-repository
 
-### Implementation Requirements
+3. Make sure the backend API is running before using the frontend application.
 
-- Use Angular modules for Teams, Players, and Matches.
-- Implement routing with lazy loading for the modules.
-- Use Angular services for API interactions.
-- Log API responses and handle errors gracefully.
+## Installation Frontend
 
-### Extra Points
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/andrei-hernandez/pollitos-league-manager-ui.git
 
-- **Testing:** Create unit tests for components and services using Jasmine and Karma. Add integration tests with Protractor or Cypress.
-- **Reusable Interfaces:** Create TypeScript interfaces for entities like Team, Player, and Match.
-- **Documentation:** Provide instructions in the README, including:
-  - How to set up the project
-  - How to run the app
-  - How to run tests
-  - How to configure the API endpoints
+2. Switch to the specific branch
+   ```bash
+   git checkout pollitos-league-ui-rocio
 
-## Folder Structure
+## Development mode
 
-```plaintext
-src/
-├── app/
-│   ├── core/                  # Core services, guards, and shared logic
-│   │   ├── services/          # Reusable services (e.g., AuthService, ApiService)
-│   │   ├── guards/            # Route guards (e.g., AuthGuard)
-│   │   ├── interceptors/      # HTTP interceptors
-│   │   ├── models/            # Shared interfaces and types
-│   │   └── utils/             # Utility functions (pipes or helpers)
-│   ├── features/              # Feature-specific modules
-│   │   ├── feature1/          # Example: "users" (one folder per feature/module)
-│   │   │   ├── components/    # Components related to this feature
-│   │   │   ├── pages/         # Main pages/components for routes
-│   │   │   └── services/      # Services specific to this module
-│   │   └── feature2/
-│   ├── shared/                # Shared components, pipes, and modules
-│   │   ├── components/        # Common components (e.g., buttons, modals)
-│   │   ├── directives/        # Custom directives
-│   │   ├── pipes/             # Shared pipes
-│   │   └── modules/           # Reusable secondary modules
-│   ├── layout/                # Layout components (e.g., header, footer)
-│   └── app-routing.module.ts  # Main routing configuration
-├── assets/                    # Static files (images, icons, etc.)
-├── environments/              # Environment-specific configuration (dev, prod)
-├── styles/                    # Global styles (SCSS or CSS)
-└── index.html
-```
+Run the application in development mode:
 
-## Project info
-
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
-
-## Development server
-
-To start a local development server, run:
-
-```bash
+```bash  
 ng serve
-```
+```  
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Once the server is running, Access the application at `http://localhost:4200/`
