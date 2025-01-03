@@ -1,0 +1,111 @@
+<div class="container mx-auto p-4">
+
+    <h1 class="text-3xl font-bold text-center mb-6">Teams Management</h1>
+  
+    <div *ngIf="error" class="bg-red-100 text-red-700 p-4 rounded mb-4">
+      {{ error }}
+    </div>
+    <div *ngIf="success" class="bg-red-100 text-green-700 p-4 rounded mb-4">
+      {{ success }}
+    </div>
+  
+    <div class="mb-6 flex justify-center">
+      <label for="league" class="mr-2 font-semibold">Seleccionar Liga:</label>
+      <select
+        id="league"
+        [(ngModel)]="selectedLeague"
+        (change)="changeLeague(selectedLeague)"
+        class="border border-gray-300 rounded p-2"
+      >
+        <option value="soccerleague">Soccer League</option>
+        <option value="basketleague">Basket League</option>
+      </select>
+    </div>
+  
+    <div class="overflow-x-auto mb-6">
+      <table class="table-auto w-full border-collapse border border-gray-200">
+        <thead>
+          <tr class="bg-gray-100 text-left">
+            <th class="border border-gray-300 px-4 py-2">Name</th>
+            <th class="border border-gray-300 px-4 py-2">League</th>
+            <th class="border border-gray-300 px-4 py-2">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of teams" class="hover:bg-gray-50">
+            <td class="border border-gray-300 px-4 py-2">{{ team.name }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ team.league }}</td>
+            <td class="border border-gray-300 px-4 py-2">
+              <button
+                (click)="editTeam(team)"
+                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              >
+                Edit
+              </button>
+              <button
+                (click)="deletePlayers(team.name)"
+                class="bg-red-500 text-white ml-4 px-4 py-2 rounded hover:bg-red-600"
+              >
+                Delete Players
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div *ngIf="!editingTeam" class="bg-gray-100 p-6 rounded mb-6">
+      <h2 class="text-2xl font-bold mb-4">Crear un nuevo equipo</h2>
+      <form (ngSubmit)="createTeam()" class="space-y-4">
+        <div>
+          <label for="name" class="block font-semibold mb-1">Nombre del equipo:</label>
+          <input
+            id="name"
+            name="name"
+            [(ngModel)]="newTeam.name"
+            required
+            placeholder="Ingresa el nombre del equipo"
+            class="w-full border border-gray-300 rounded p-2"
+          />
+        </div>
+        <button
+          type="submit"
+          class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+        >
+          Agregar
+        </button>
+      </form>
+    </div>
+  
+    <div *ngIf="editingTeam" class="bg-gray-100 p-6 rounded">
+      <h2 class="text-2xl font-bold mb-4">Editar equipo</h2>
+      <form (ngSubmit)="saveEditTeam()" class="space-y-4">
+        <div>
+          <label for="editName" class="block font-semibold mb-1">Nombre del equipo:</label>
+          <input
+            id="editName"
+            [(ngModel)]="editingTeam.name"
+            name="editName"
+            required
+            class="w-full border border-gray-300 rounded p-2"
+          />
+        </div>
+        <div class="flex space-x-4">
+          <button
+            type="submit"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Guardar
+          </button>
+          <button
+            type="button"
+            (click)="cancelEdit()"
+            class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+          >
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

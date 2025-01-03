@@ -1,11 +1,6 @@
-<div class="p-4">
-  <h1 class="text-2xl font-bold">Ejemplo Petición Backend</h1>
-  <button class="bg-blue-500 text-white px-4 py-2 mt-4" (click)="obtenerSaludo()">
-    Obtener Saludo del Backend
-  </button>
-
-  <div class="mt-4" *ngIf="mensajeBackend">
-    Respuesta: {{ mensajeBackend }}
-  </div>
-
-</div>
+<nav class="p-4 bg-gray-800 text-white">
+    <a routerLink="/teams" class="mr-4">Teams</a>
+    <a routerLink="/matches" class="mr-4">Matches</a>
+    <a routerLink="/players" class="mr-4">Players</a>
+  </nav>
+<router-outlet></router-outlet>

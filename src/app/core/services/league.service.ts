@@ -11,7 +11,7 @@ import { MatchDTO } from '../models/match.model';
   providedIn: 'root',
 })
 export class LeagueService {
-  private baseUrl = 'http://localhost:8000';
+  private baseUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {}
 
@@ -78,4 +78,10 @@ export class LeagueService {
       `${this.baseUrl}/${leagueName}/team/${teamID}`
     );
   }
+
+  //Testing
+  getSaludo(): Observable<{mensaje: string}>{    
+    return this.http.get<{mensaje:string}>(`${this.baseUrl}/api/saludo`);
+  }
+
 }
