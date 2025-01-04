@@ -19,7 +19,7 @@
   </div>
 
 
-  <div class="mb-6 flex justify-center" *ngIf="teams.length > 0">
+  <div class="mb-6 flex justify-center" *ngIf="teams && teams.length > 0">
     <label for="team" class="mr-2 font-semibold">Seleccionar Equipo:</label>
     <select
       id="team"
@@ -39,7 +39,7 @@
     </button>
   </div>
 
-  <div class="overflow-x-auto mb-6" *ngIf="playersDTO.length > 0">
+  <div class="overflow-x-auto mb-6" *ngIf="playersDTO && playersDTO.length > 0">
     <table class="table-auto w-full border-collapse border border-gray-200">
       <thead>
         <tr class="bg-gray-100 text-left">
@@ -71,12 +71,12 @@
   </div>
 
   <div *ngIf="editingPlayer" class="bg-gray-100 p-6 rounded mb-6">
-    <h2 class="text-2xl font-bold mb-4">Edit Player</h2>
-    <form (ngSubmit)="saveEditing()">
+    <h2 class="text-2xl font-bold mb-4">
+      {{ creatingPlayer ? 'Create New Player' : 'Edit Player' }}
+    </h2>
+    <form (ngSubmit)="creatingPlayer ? saveNewPlayer() : saveEditing()">
       <div class="mb-4">
-        <label for="playerName" class="block font-semibold mb-2"
-          >Player Name</label
-        >
+        <label for="playerName" class="block font-semibold mb-2">Player Name</label>
         <input
           id="playerName"
           type="text"
@@ -86,7 +86,7 @@
           class="w-full border border-gray-300 rounded p-2"
         />
       </div>
-
+  
       <div class="mb-4">
         <label for="playerTeam" class="block font-semibold mb-2">Team</label>
         <select
@@ -101,13 +101,13 @@
           </option>
         </select>
       </div>
-
+  
       <div class="flex space-x-4">
         <button
           type="submit"
           class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
         >
-          Update
+          {{ creatingPlayer ? 'Create' : 'Update' }}
         </button>
         <button
           type="button"

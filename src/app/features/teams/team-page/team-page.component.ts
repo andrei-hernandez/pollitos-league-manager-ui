@@ -4,8 +4,6 @@ import { TeamDTO } from '../../../core/models/team.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PlayerDTO } from '../../../core/models/player.model';
-import { response } from 'express';
-import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-team-page',

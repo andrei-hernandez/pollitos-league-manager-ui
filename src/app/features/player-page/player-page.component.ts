@@ -14,12 +14,13 @@ import { TeamDTO } from '../../core/models/team.model';
 })
 export class PlayerComponent implements OnInit {
   error: string | null = null;
+  success: string | null = null;
 
   selectedLeague: string = 'soccerleague';
   selectedTeam: string = '';
   playersDTO: PlayerDTO[] = [];
   editingPlayer: PlayerDTO | null = null;
-
+  creatingPlayer: boolean = false;
 
   teams: TeamDTO[] = [];
 
@@ -34,7 +35,8 @@ export class PlayerComponent implements OnInit {
   }
   
   cancelEditing(): void {
-    this.editingPlayer = null;
+    this.editingPlayer = null; 
+    this.creatingPlayer = false; 
   }
 
   saveEditing(): void {
@@ -42,25 +44,44 @@ export class PlayerComponent implements OnInit {
   
     const { id, team } = this.editingPlayer;
   
-  
-    this.leagueService.editPlayer(this.selectedLeague, team, id, this.editingPlayer).subscribe({
-      next: () => {
-        const index = this.playersDTO.findIndex((player) => player.id === id);
-        if (index !== -1) {
-          this.playersDTO[index] = {id: this.editingPlayer!.id, 
-          name: this.editingPlayer!.name, 
-          team: this.editingPlayer!.team, 
-          };
-          this.loadPlayersByTeam(this.editingPlayer!.team);
-        }
-        this.cancelEditing(); 
-      },
-      error: (err) => {
-        this.error = "Couldn't update player";
-        console.error(err);
-      },
-    });
+    if (this.creatingPlayer) {
+      // Create new player
+      this.leagueService
+        .createPlayer(this.selectedLeague, this.selectedTeam, this.editingPlayer)
+        .subscribe({
+          next: () => {
+            this.success = 'Player created successfully!';
+            this.loadPlayersByTeam(this.selectedTeam);
+            this.cancelEditing();
+          },
+          error: (err) => {
+            this.error = "Couldn't create the player";
+            console.error(err);
+          },
+        });
+    } else if (id && team) {
+      // Edit existing player
+      this.leagueService
+        .editPlayer(this.selectedLeague, team, id, this.editingPlayer)
+        .subscribe({
+          next: (message: string) => {
+            console.log(message); // Log the backend's response
+            this.success = 'Player updated successfully!';
+            this.loadPlayersByTeam(this.selectedTeam); // Refresh the list
+            this.cancelEditing();
+          },
+          error: (err) => {
+            this.error = "Couldn't update the player";
+            console.error(err);
+          },
+        });
+    } else {
+      this.error = 'Player ID and team are required to update';
+      console.error(this.error);
+    }
   }
+  
+  
 
 
   loadTeams(): void {
@@ -100,12 +121,30 @@ export class PlayerComponent implements OnInit {
   }
 
   createNewPlayer(): void {
+    this.creatingPlayer = true;
 
     this.editingPlayer = {
       id: 0, 
       name: '',
       team: this.selectedTeam,
     };
+  }
+
+  saveNewPlayer(): void {
+    if (!this.editingPlayer) return;
+  
+    this.leagueService
+      .createPlayer(this.selectedLeague, this.selectedTeam, this.editingPlayer)
+      .subscribe({
+        next: () => {
+          this.loadPlayersByTeam(this.selectedTeam);
+          this.cancelEditing(); 
+        },
+        error: (err) => {
+          this.error = "Couldn't create player";
+          console.error(err);
+        },
+      });
   }
   
   
