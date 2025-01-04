@@ -1,6 +1,6 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { routes } from './app.routes';  // Ruta de tu aplicación
+import { routes } from './app.routes';  
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,19 +16,19 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),  // Activar el cambio de detección de zona
-    provideRouter(routes),  // Enrutador
-    provideAnimationsAsync(),  // Animaciones de Angular
+    provideZoneChangeDetection({ eventCoalescing: true }), 
+    provideRouter(routes),  
+    provideAnimationsAsync(),  
     provideHttpClient(),
-    BrowserAnimationsModule,  // Animaciones en el navegador
-    MatButtonModule,  // Material Button
-    MatTableModule,  // Material Table
-    MatInputModule,  // Material Input
-    MatCardModule,  // Material Card
-    MatPaginatorModule,  // Material Paginator
-    MatIconModule,  // Material Icon
-    MatFormFieldModule,  // Material Form Field
-    MatToolbarModule,  // Material Toolbar
-    FlexLayoutModule, provideAnimationsAsync(),  // Flex Layout
+    BrowserAnimationsModule,  
+    MatButtonModule,  
+    MatTableModule,  
+    MatInputModule,  
+    MatCardModule, 
+    MatPaginatorModule, 
+    MatIconModule, 
+    MatFormFieldModule, 
+    MatToolbarModule, 
+    FlexLayoutModule, provideAnimationsAsync(), 
   ]
 };
