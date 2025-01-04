@@ -1,5 +1,8 @@
 <div class="container">
   <h2>Lista de Equipos</h2>
+
+  <button mat-raised-button color="primary" routerLink="" class="mb-3">Ir a Inicio</button>
+
   <div class="mb-3">
     <mat-form-field appearance="fill" class="w-100">
       <mat-label>Buscar Equipo por ID</mat-label>
@@ -42,7 +45,6 @@
             <mat-icon>edit</mat-icon>
             <a [routerLink]="['/editTeam', team.idteam]" class="mat-button">Editar</a>
           </button>
-          
         </div>
         <button mat-icon-button color="warn" (click)="deleteTeam(team.idteam)">
           <mat-icon>delete</mat-icon>

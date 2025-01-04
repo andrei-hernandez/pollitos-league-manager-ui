@@ -1,6 +1,8 @@
 <div class="container">
   <h2>Lista de Jugadores</h2>
 
+  <button mat-raised-button color="primary" routerLink="" class="mb-3">Ir a Inicio</button>
+
   <div class="mb-3">
     <label for="playerId">Mostrar Jugadores por Equipo</label>
     <input
@@ -10,7 +12,6 @@
       [(ngModel)]="searchPlayerId"
       placeholder="Ingrese el ID del jugador"
     />
-
     <button mat-raised-button color="primary" class="mt-2" (click)="searchPlayer(searchPlayerId)">Buscar</button>
   </div>
 

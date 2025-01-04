@@ -1,27 +1,78 @@
-# PollitosLeague
+# PollitosLeague- Francisco
+## Overview
+This project is a complete League Management Application with a backend API and a frontend user interface. The backend automatically populates the database with sample data, while the frontend allows users to view league information and interact with it.
+## Getting Started
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
+### Backend API Setup
 
-## Development server
+1. Clone the backend repository:
+   ```bash
+   git clone: https://github.com/fjpgtt/pollitos-league-manager/tree/Francisco-repository-implementation
+   cd <BACKEND_REPO_DIRECTORY>
+   ```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+2. Build and run the application:
+   ```bash
+   ./mvnw spring-boot:run
+   ```
 
-## Code scaffolding
+3. The backend service will start on `http://localhost:8080`. The database will be automatically populated with sample data during initialization.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Frontend Application Setup
 
-## Build
+1. Clone the frontend repository:
+   ```bash
+   git clone: https://github.com/andrei-hernandez/pollitos-league-manager-ui/tree/francisco
+   cd <FRONTEND_REPO_DIRECTORY>
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
 
-## Running unit tests
+3. Run the frontend application:
+   ```bash
+   ng serve
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4. The frontend application will be available at `http://localhost:4200`.
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Usage Instructions
 
-## Further help
+### Selecting a League
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Navigate to the main page where the list of leagues is displayed.
+- Click on the name of the desired league.
+- A message will appear showing the selected league.
+
+### Viewing League Details
+
+- League details, including players, matches, and teams, are displayed in the respective sections.
+
+---
+
+## Notes and Troubleshooting
+
+- Ensure that both the backend and frontend applications are running concurrently for full functionality.
+- If port `8080` or `4200` is already in use, stop any processes using these ports or configure alternative ports.
+- Use `npm cache clean --force` if dependency installation fails.
+- Use `mvn clean install` to rebuild the backend if necessary.
+
+---
+
+## Dependencies
+
+### Backend
+- Java 17
+- Spring Boot
+
+
+### Frontend
+- Angular CLI
+- Node.js and npm
+
+
+
