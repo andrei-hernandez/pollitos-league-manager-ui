@@ -1,134 +1,80 @@
-# Welcome to pollitos-league-manager-ui
+# PollitosLeague- Francisco
+## Overview
+This project is a complete League Management Application with a backend API and a frontend user interface. The backend automatically populates the database with sample data, while the frontend allows users to view league information and interact with it.
+## Getting Started
 
-We are building a UI for a sports league management system. The application will manage two leagues: **Soccer League** and **Baseball League**. The UI will consume APIs that handle the data for these leagues, including teams, players, and matches.
+### Backend API Setup
 
-## Features and Functionality
+1. Clone the backend repository:
+   ```bash
+   git clone: https://github.com/fjpgtt/pollitos-league-manager/tree/Francisco-repository-implementation
+   cd <BACKEND_REPO_DIRECTORY>
+   ```
 
-### Pages to Create
+2. Build and run the application:
+   ```bash
+   ./mvnw spring-boot:run
+   ```
 
-- **Home Page:** A dashboard with links to Teams, Players, and Matches modules.
-- **Teams Module:**
-  - List Teams: Display all teams in the selected league.
-  - Create Team: A form to add a new team.
-  - Edit Team: A form to update a team’s information.
-  - Delete Players: A button to delete all players from a specific team.
-- **Players Module:**
-  - List Players: Display all players in a specific team.
-  - Create Player: A form to add a new player and assign them to a team.
-  - Edit Player: A form to update a player’s information.
-- **Matches Module:**
-  - Create Match: A form to create a match between two teams with their scores.
-  - View Matches: Display all matches for a specific team.
-  - Delete Matches: A button to delete all matches.
+3. The backend service will start on `http://localhost:8080`. The database will be automatically populated with sample data during initialization.
 
-## UI Requirements
+### Frontend Application Setup
 
-- Allow users to switch between the two leagues (Soccer League and Baseball League).
-- **Reusable Components:** Use reusable components for forms and tables.
-- **Validation:** Ensure valid inputs, such as the number of teams not exceeding the league's limit (default is 10).
-- **Styling:** Students can use any CSS framework, library, or custom styles.
+1. Clone the frontend repository:
+   ```bash
+   git clone: https://github.com/andrei-hernandez/pollitos-league-manager-ui/tree/francisco
+   cd <FRONTEND_REPO_DIRECTORY>
+   ```
 
-## Criteria to Evaluate
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
 
-### Implementation Requirements
+3. Run the frontend application:
+   ```bash
+   ng serve
+   ```
 
-- Use Angular modules for Teams, Players, and Matches.
-- Implement routing with lazy loading for the modules.
-- Use Angular services for API interactions.
-- Log API responses and handle errors gracefully.
+4. The frontend application will be available at `http://localhost:4200`.
 
-### Extra Points
+---
 
-- **Testing:** Create unit tests for components and services using Jasmine and Karma. Add integration tests with Protractor or Cypress.
-- **Reusable Interfaces:** Create TypeScript interfaces for entities like Team, Player, and Match.
-- **Documentation:** Provide instructions in the README, including:
-  - How to set up the project
-  - How to run the app
-  - How to run tests
-  - How to configure the API endpoints
+## Usage Instructions
 
-## Folder Structure
+### Selecting a League
 
-```plaintext
-src/
-├── app/
-│   ├── core/                  # Core services, guards, and shared logic
-│   │   ├── services/          # Reusable services (e.g., AuthService, ApiService)
-│   │   ├── guards/            # Route guards (e.g., AuthGuard)
-│   │   ├── interceptors/      # HTTP interceptors
-│   │   ├── models/            # Shared interfaces and types
-│   │   └── utils/             # Utility functions (pipes or helpers)
-│   ├── features/              # Feature-specific modules
-│   │   ├── feature1/          # Example: "users" (one folder per feature/module)
-│   │   │   ├── components/    # Components related to this feature
-│   │   │   ├── pages/         # Main pages/components for routes
-│   │   │   └── services/      # Services specific to this module
-│   │   └── feature2/
-│   ├── shared/                # Shared components, pipes, and modules
-│   │   ├── components/        # Common components (e.g., buttons, modals)
-│   │   ├── directives/        # Custom directives
-│   │   ├── pipes/             # Shared pipes
-│   │   └── modules/           # Reusable secondary modules
-│   ├── layout/                # Layout components (e.g., header, footer)
-│   └── app-routing.module.ts  # Main routing configuration
-├── assets/                    # Static files (images, icons, etc.)
-├── environments/              # Environment-specific configuration (dev, prod)
-├── styles/                    # Global styles (SCSS or CSS)
-└── index.html
-```
+- Navigate to the main page where the list of leagues is displayed.
+- Click on the name of the desired league.
+- A message will appear showing the selected league.
 
-## Project info
+### Viewing League Details
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+- League details, including players, matches, and teams, are displayed in the respective sections.
 
-## Development server
+---
 
-To start a local development server, run:
+## Notes and Troubleshooting
 
-```bash
-ng serve
-```
+- Ensure that both the backend and frontend applications are running concurrently for full functionality.
+- If port `8080` or `4200` is already in use, stop any processes using these ports or configure alternative ports.
+- Use `npm cache clean --force` if dependency installation fails.
+- Use `mvn clean install` to rebuild the backend if necessary.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Dependencies
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Backend
+- Java 17
+- Spring Boot
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Frontend
+- Angular CLI
+- Node.js and npm
 
-```bash
-ng generate --help
-```
+##
 
-## Building
 
-To build the project run:
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
