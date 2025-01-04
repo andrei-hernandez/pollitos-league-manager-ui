@@ -1,0 +1,57 @@
+
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  
+  mat-label {
+    color: #007BFF;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  
+  mat-input-element {
+    color: #333; 
+  }
+  
+
+  mat-error {
+    color: #FF4D4D;
+    font-size: 12px;
+  }
+  
+
+  button {
+    background-color: #007BFF; 
+    color: white;
+    padding: 12px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+
+  button:hover {
+    background-color: #0056b3; 
+  }
+  
+ 
+  button:disabled {
+    background-color: #A5C6FF;
+    cursor: not-allowed;
+  }
+  

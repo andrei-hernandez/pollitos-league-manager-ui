@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Crear Nuevo Equipo</h2>
+
+  <form (ngSubmit)="createTeam()">
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Nombre del Equipo</mat-label>
+      <input
+        matInput
+        type="text"
+        id="teamname"
+        [(ngModel)]="team.teamname"
+        name="teamname"
+        required
+        placeholder="Nombre del equipo"
+      />
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>ID Liga</mat-label>
+      <input
+        matInput
+        type="number"
+        id="idLeague"
+        [(ngModel)]="team.idLeague"
+        name="idLeague"
+        required
+        placeholder="Ingrese ID de la liga"
+      />
+    </mat-form-field>
+
+   
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+      <button mat-raised-button color="primary" type="submit">Crear Equipo</button>
+      <a [routerLink]="['/teams']" mat-button>Cancelar</a>
+    </div>
+  </form>
+</div>
